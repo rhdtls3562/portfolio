@@ -2698,7 +2698,7 @@
     box-sizing: border-box;
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100%;
   }
 
   video {
@@ -2717,18 +2717,22 @@
 
   .wrap {
     box-sizing: border-box;
-    padding-top: 6vw;
+    padding-top: 10vw;
     margin: auto;
     width: 80%;
   }
 
   #visual img {
-    width: 100px;
+    width: 6vw;
   }
 
   .top1 {
     display: flex;
     justify-content: space-between;
+  }
+
+  .top1 li {
+    font-size: 2vw;
   }
 
   .top2 {
@@ -2792,17 +2796,17 @@
   }
 
   .top3 h2 {
+    word-spacing: 1.5vw;
     white-space: nowrap;
     box-sizing: border-box;
     padding-left: 0vw;
     width: 100%;
     box-sizing: border-box;
-    font-size: 6vw;
+    font-size: 5.5vw;
   }
 
   .top3 h2 span {
     white-space: nowrap;
-
     color: transparent;
     -webkit-text-stroke: 2px #222;
   }
@@ -2823,16 +2827,18 @@
   }
 
   .visual_bottom {
+    font-size: 1.5vw;
+    align-items: center;
     justify-content: space-between;
     display: flex;
-    margin-top: 14vw;
+    margin-top: 15vw;
+    padding-bottom: 8vw;
   }
 
   /*container*/
 
   #container {
     width: 100%;
-
     overflow: hidden; /* 내용이 넘칠 경우 숨김 */
   }
 
@@ -2845,18 +2851,18 @@
   }
 
   .con1 {
-    padding: 0px 50px;
+    padding: 2vw 3vw;
     box-sizing: border-box;
     position: relative;
     width: 100%;
     background-image: url(../img/bg2.jpg);
     display: block;
-    height: 100vh; /* 전체 화면 높이로 설정 */
+    height: 100%;
     background-size: cover;
   }
 
   .con1_wrap {
-    padding-top: 4.5vw;
+    padding-top: 3vw;
     margin: auto;
   }
 
@@ -2903,7 +2909,7 @@
   }
 
   .con1_txt2 {
-    width: 95%;
+    width: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -2917,13 +2923,14 @@
 
   .txt2_2 {
     margin: auto;
-    width: 90%;
+    width: 100%;
     display: flex;
     gap: 2vw; /* 간격을 vw로 변경 */
     justify-content: left;
   }
 
   .con1 p {
+    font-size: 1.5vw;
     width: 80%;
     margin-top: 4vw;
   }
@@ -2973,7 +2980,7 @@
     width: 100%;
     background-image: url(../img/bg3.jpg);
     display: block;
-    height: 100vh; /* 전체 화면 높이로 설정 */
+    height: 100%;
     background-size: cover;
   }
 
@@ -3029,10 +3036,11 @@
   .keyword_2 li:nth-child(1),
   .keyword_2 li:nth-child(3),
   .keyword_2 li:nth-child(5) {
+    font-size: 1.5vw;
     background-color: #97e4da;
-    width: 9vw;
-    height: 5vh;
-    line-height: 5vh;
+    width: 10vw;
+    height: 4vh;
+    line-height: 4vh;
     text-align: center;
     border-radius: 2vw; /* 경계 반경을 vw로 변경 */
     border: 1px solid #222;
@@ -3059,6 +3067,7 @@
   }
 
   .color_system p {
+    font-size: 1vw;
     font-family: "Raleway", sans-serif;
     color: #777;
   }
@@ -3081,8 +3090,8 @@
   }
 
   .color_balance p {
+    font-size: 1.3vw;
     text-align: justify;
-    line-height: 25px; /* 줄 높이를 vw로 변경 */
     color: #777;
   }
 
@@ -3091,7 +3100,7 @@
     display: flex;
     align-items: stretch;
     justify-content: center;
-    height: 37%;
+    height: 33%;
     flex-wrap: wrap;
     z-index: 1;
     margin-left: 10vw;
@@ -3105,7 +3114,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 50vh;
+    height: 150%;
     background-image: url(../img/격자.png); /* 배경 이미지 설정 */
     filter: grayscale(100%);
     background-size: cover;
@@ -3115,7 +3124,7 @@
   }
 
   .logo_wrap {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     padding: 1.5vw 4vw;
     display: flex;
     flex-wrap: wrap;
@@ -3168,6 +3177,7 @@
   }
 
   .liner_wrap p {
+    font-size: 1.3vw;
     width: 100%; /* 너비를 vw로 변경 */
     text-align: justify;
   }
@@ -3196,20 +3206,22 @@
 
   .con3 {
     z-index: -1px;
-    padding: 2vw;
+
     box-sizing: border-box;
     width: 100%;
     background-image: url(../img/bg4.jpg);
     display: block;
-    height: 100vh;
+    height: 100%;
     background-size: cover;
   }
 
   .con3_wrap {
+    box-sizing: border-box;
+    padding-bottom: 9vw;
     position: relative;
     width: 90%;
     margin: auto;
-    margin-top: 3vw;
+    margin-top: 9vw;
   }
 
   .profile_img {
@@ -3307,10 +3319,10 @@
   }
 
   .sub {
-    margin-top: -15px;
+    margin-top: -5px;
     font-size: 0.9vw;
     color: #aaa;
-    margin-left: 5vw;
+    margin-left: 32%;
   }
 
   .education li:nth-child(1) span {
@@ -3394,8 +3406,8 @@
     display: flex; /* Flexbox 사용 */
     justify-content: center; /* 수평 중앙 정렬 */
     align-items: center; /* 수직 중앙 정렬 */
-    margin-left: 30px;
-    margin-right: 25px;
+    margin-left: -30px;
+    margin-right: 20px;
     position: relative;
     background-color: #aaa;
     padding: 0vw 12vw;
@@ -3473,18 +3485,18 @@
   .con4 {
     position: relative;
     z-index: -1px;
-    padding: 2vw;
+    padding: 3vw 2vw;
     box-sizing: border-box;
     width: 100%;
     background-image: url(../img/bg5.jpg);
     display: block;
-    height: 100vh;
+    height: 100%;
     background-size: cover;
   }
 
   .con4_wrap {
     display: flex;
-
+    padding-top: 5vw;
     width: 90%;
     margin: auto;
   }
@@ -3619,16 +3631,17 @@
   .con5 {
     position: relative;
     z-index: -1px;
-    padding: 2vw;
+    padding: 4vw 2vw;
     box-sizing: border-box;
     width: 100%;
     background-image: url(../img/bg6.jpg);
     display: block;
-    height: 100vh;
+    height: 100%;
     background-size: cover;
   }
 
   .con5_wrap {
+    padding-top: 6vw;
     position: relative;
     display: flex;
     width: 90%;
@@ -3765,54 +3778,48 @@
     color: #555;
   }
 
-  .logo_5 {
-    position: absolute;
-    right: -3vw; /* 위치를 vw로 변경 */
-    bottom: 0vw; /* 위치를 vw로 변경 */
-    object-fit: cover;
-    display: block;
-    width: 4vw; /* 너비를 vw로 변경 */
-    height: 4vw; /* 높이를 vw로 변경 */
-  }
   /*con6*/
 
   .con6 {
+    overflow: hidden;
     position: relative;
     z-index: -1px;
     padding: 2vw;
     box-sizing: border-box;
     width: 100%;
+    height: 60vw;
     background-image: url(../img/bg6.jpg);
     display: block;
-    height: 100vh;
     background-size: cover;
   }
 
   .txtwrap {
+    top: 5vw;
     position: relative;
     text-align: center;
   }
 
   .txtwrap1 {
-    top: 1.5vw;
+    top: 0vw;
   }
 
   .txtwrap p {
-    font-size: 1vw;
+    font-size: 1.5vw;
     padding-bottom: 0.9vw;
     margin: auto;
     width: 13vw;
   }
 
   .txtwrap h2 {
-    font-size: 1vw;
+    font-size: 1.5vw;
     font-weight: 600;
     margin-bottom: 1vw;
     font-family: "Raleway", sans-serif;
   }
 
   .txtwrap p {
-    font-size: 0.9vw;
+    letter-spacing: -1px;
+    font-size: 1vw;
   }
 
   .txtwrap div {
@@ -3821,8 +3828,9 @@
   }
 
   .txtwrap2 {
+    margin-top: 3vw;
     display: flex;
-    gap: 15vw;
+    gap: 37vw;
     justify-content: space-around;
   }
 
@@ -3840,7 +3848,8 @@
 
   .txtwrap3 {
     display: flex;
-    margin-top: 12vw;
+    gap: 3vw;
+    margin-top: 15vw;
     justify-content: space-around;
   }
 
@@ -3851,7 +3860,7 @@
   .click2 {
     top: 5vw;
     position: absolute;
-    font-size: 0.8vw;
+    font-size: 1vw;
     color: #555;
   }
 
@@ -3860,14 +3869,15 @@
   }
 
   .circle_2 {
+    clip-path: inset(0 50 50% 0);
     box-shadow: 0px 0px 10px #999;
     position: relative;
-    width: 50vw;
-    height: 50vw;
+    width: 55vw;
+    height: 55vw;
     background-color: #fff;
     border-radius: 50%;
-    left: 25vw;
-    top: 12vw;
+    left: 27.5vw;
+    top: 8.5vw;
     transform: translate(-50%, -50%);
   }
 
@@ -3880,10 +3890,10 @@
     border-radius: 50%;
     padding: 1.5vw;
     background-color: #fff;
-    left: -2vw;
-    top: 14vw;
+    left: -3vw;
+    top: 20vw;
     box-shadow: 0px 0px 10px #999;
-    width: 4vw;
+    width: 5vw;
   }
 
   .blog {
@@ -3891,10 +3901,10 @@
     border-radius: 50%;
     padding: 1.5vw;
     background-color: #fff;
-    left: 6vw;
-    top: 2vw;
+    left: 4vw;
+    top: 4vw;
     box-shadow: 0px 0px 10px #999;
-    width: 4vw;
+    width: 5vw;
   }
 
   .kakao {
@@ -3902,10 +3912,10 @@
     border-radius: 50%;
     padding: 1.5vw;
     background-color: #fff;
-    left: 21vw;
-    top: -3.5vw;
+    left: 23.5vw;
+    top: -4vw;
     box-shadow: 0px 0px 10px #999;
-    width: 4vw;
+    width: 5vw;
   }
 
   .email {
@@ -3913,10 +3923,10 @@
     border-radius: 50%;
     padding: 1.5vw;
     background-color: #fff;
-    right: 6vw;
-    top: 2vw;
+    right: 4vw;
+    top: 4vw;
     box-shadow: 0px 0px 10px #999;
-    width: 4vw;
+    width: 5vw;
   }
 
   .call {
@@ -3924,16 +3934,16 @@
     border-radius: 50%;
     padding: 1.5vw;
     background-color: #fff;
-    right: -2vw;
-    top: 14vw;
+    right: -3vw;
+    top: 20vw;
     box-shadow: 0px 0px 10px #999;
-    width: 4vw;
+    width: 5vw;
   }
 
   .rom {
-    width: 11.5vw;
-    left: 25vw;
-    bottom: 12vw;
+    width: 15vw;
+    left: 28vw;
+    bottom: 7vw;
     transform: translate(-50%, -50%);
   }
 
@@ -3956,7 +3966,7 @@
     text-align: center;
     position: absolute;
     left: 50%;
-    top: 18%;
+    top: 20%;
     transform: translate(-50%, -50%);
   }
 
@@ -3964,7 +3974,7 @@
     font-family: "Raleway", sans-serif;
     font-size: 2vw;
     font-weight: 400;
-    margin-bottom: 1.5vw;
+    margin-bottom: 2vw;
   }
 
   .rom_explan h5 span {
@@ -3977,15 +3987,5 @@
     font-size: 1.5vw;
     margin: auto;
     width: 100%;
-  }
-
-  .logo_6 {
-    position: absolute;
-    right: -21vw; /* 위치를 vw로 변경 */
-    top: -14vw; /* 위치를 vw로 변경 */
-    object-fit: cover;
-    display: block;
-    width: 4vw; /* 너비를 vw로 변경 */
-    height: 4vw; /* 높이를 vw로 변경 */
   }
 }
