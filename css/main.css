@@ -2699,7 +2699,7 @@
     box-sizing: border-box;
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
   }
 
   video {
@@ -2755,7 +2755,7 @@
     color: transparent;
     -webkit-text-stroke: 1.5px #222;
     box-sizing: border-box;
-    font-size: 9vw;
+    font-size: 8vw;
   }
 
   .circle {
@@ -2832,20 +2832,12 @@
     border-radius: 50%;
   }
 
-  .visual_bottom li:nth-child(2) {
-    position: absolute;
-    right: 20vw;
-  }
-
   .visual_bottom {
-    width: 100%;
-    position: absolute;
-    bottom: 20vw;
     font-size: 2vw;
     align-items: center;
     justify-content: space-between;
     display: flex;
-    padding-top: 40%;
+    padding-top: 10vw;
   }
 
   /*container*/
@@ -2870,7 +2862,7 @@
     width: 100%;
     background-image: url(../img/bg2.jpg);
     display: block;
-    height: 100vh;
+    height: 100%;
     background-size: cover;
   }
 
@@ -2928,6 +2920,10 @@
     justify-content: center;
     gap: 6vw; /* 간격을 vw로 변경 */
     flex-wrap: wrap;
+  }
+
+  .con1_txt2 > li {
+    width: calc(80% / 2); /* 너비를 비율로 유지 */
   }
 
   .txt2_2 {
