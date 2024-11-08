@@ -2695,10 +2695,11 @@
   }
 
   #visual {
+    margin: auto;
     box-sizing: border-box;
     position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
   }
 
   video {
@@ -2717,7 +2718,7 @@
 
   .wrap {
     box-sizing: border-box;
-    padding-top: 10vw;
+    padding-top: 100px;
     margin: auto;
     width: 80%;
   }
@@ -2727,12 +2728,13 @@
   }
 
   .top1 {
+    gap: 5vw;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .top1 li {
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
 
   .top2 {
@@ -2750,8 +2752,10 @@
 
   .top2 h2 {
     white-space: nowrap;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #222;
     box-sizing: border-box;
-    font-size: 6vw;
+    font-size: 9vw;
   }
 
   .circle {
@@ -2763,7 +2767,7 @@
   .cir1 {
     margin-left: 0vw; /* 오른쪽 간격을 vw로 설정 */
     border: 1px solid #222;
-    padding: 4vw;
+    padding: 7vw;
     border-radius: 50%;
   }
 
@@ -2771,14 +2775,15 @@
     margin-left: -2vw; /* 왼쪽 간격을 vw로 설정 */
     margin-right: -2vw; /* 오른쪽 간격을 vw로 설정 */
     border: 1px solid #222;
-    padding: 4vw;
+    padding: 7vw;
     border-radius: 50%;
   }
 
   .cir3 {
+    display: none;
     margin-left: 30vw; /* 고정된 픽셀 대신 뷰포트 너비에 맞춘 상대적 간격 */
     border: 1px solid #222;
-    padding: 4vw;
+    padding: 7vw;
     border-radius: 50%;
     flex-shrink: 0; /* 줄어들지 않도록 설정하여 고정된 위치 유지 */
     box-sizing: border-box;
@@ -2796,16 +2801,16 @@
   }
 
   .top3 h2 {
-    word-spacing: 1.5vw;
     white-space: nowrap;
     box-sizing: border-box;
-    padding-left: 0vw;
+    padding-left: 5vw;
     width: 100%;
     box-sizing: border-box;
-    font-size: 5.5vw;
+    font-size: 7.2vw;
   }
 
   .top3 h2 span {
+    display: none;
     white-space: nowrap;
     color: transparent;
     -webkit-text-stroke: 2px #222;
@@ -2814,11 +2819,12 @@
   .cir4 {
     margin-left: 0vw; /* 왼쪽 간격을 vw로 설정 */
     border: 1px solid #222;
-    padding: 4vw;
+    padding: 7vw;
     border-radius: 50%;
   }
 
   .cir5 {
+    display: none;
     margin-left: -2vw; /* 왼쪽 간격을 vw로 설정 */
     margin-right: 2vw; /* 오른쪽 간격을 vw로 설정 */
     border: 1px solid #222;
@@ -2826,13 +2832,20 @@
     border-radius: 50%;
   }
 
+  .visual_bottom li:nth-child(2) {
+    position: absolute;
+    right: 20vw;
+  }
+
   .visual_bottom {
-    font-size: 1.5vw;
+    width: 100%;
+    position: absolute;
+    bottom: 20vw;
+    font-size: 2vw;
     align-items: center;
     justify-content: space-between;
     display: flex;
-    margin-top: 15vw;
-    padding-bottom: 8vw;
+    padding-top: 40%;
   }
 
   /*container*/
@@ -2857,7 +2870,7 @@
     width: 100%;
     background-image: url(../img/bg2.jpg);
     display: block;
-    height: 100%;
+    height: 100vh;
     background-size: cover;
   }
 
@@ -2915,10 +2928,6 @@
     justify-content: center;
     gap: 6vw; /* 간격을 vw로 변경 */
     flex-wrap: wrap;
-  }
-
-  .con1_txt2 > li {
-    width: calc(80% / 2); /* 너비를 비율로 유지 */
   }
 
   .txt2_2 {
