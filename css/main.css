@@ -555,7 +555,7 @@
   .profile_img {
     position: relative;
     cursor: pointer;
-    background-image: url(../img/증명사진.jpg);
+    background-image: url(../img/picture.JPG);
     width: 16vw;
     height: 16vw;
     object-fit: cover;
@@ -1895,7 +1895,7 @@
   .profile_img {
     position: relative;
     cursor: pointer;
-    background-image: url(../img/증명사진.jpg);
+    background-image: url(../img/picture.JPG);
     width: 16vw;
     height: 16vw;
     object-fit: cover;
@@ -3215,7 +3215,7 @@
   .profile_img {
     position: relative;
     cursor: pointer;
-    background-image: url(../img/증명사진.jpg);
+    background-image: url(../img/picture.JPG);
     width: 16vw;
     height: 16vw;
     object-fit: cover;
