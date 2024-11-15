@@ -30,11 +30,24 @@ $(function () {
       .fadeIn(5500, function () {
         // kwon_text가 나타날 때까지 기다림
         setTimeout(function () {
-          $(".wrap, .menu").fadeIn(1000, function () {
+          $(".kwon_text, .kwon").fadeOut(1000, function () {
+          
             // .wrap과 .menu가 나타난 후
-            $(".kwon_text, .kwon").fadeOut(1000, function () {
+            $(".wrap, .menu").fadeIn(1000, function () {
               // .kwon_text와 .kwon이 사라진 후
               $(".visual_bottom li:nth-child(1)").css("transform", "translateX(0)").on("transitionend", function () {
+                $(document).ready(function () {
+                  // 텍스트 줄들이 순차적으로 화면 안으로 들어오게 설정
+                  $(".visual_bottom li div").each(function (index) {
+                    $(this).delay(index * 200).queue(function (next) {
+                      $(this).css({
+                        transform: "translateX(0)", // 화면 안으로 이동
+                        opacity: 1 // 보이도록 설정
+                      });
+                      next();
+                  });
+                });
+              });
                 // 첫 번째 li 애니메이션 완료 후
                 $(".visual_bottom li:nth-child(2)").css("transform", "translateX(0)");
               });

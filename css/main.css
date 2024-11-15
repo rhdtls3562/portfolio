@@ -287,6 +287,25 @@
     transform: translateX(-100%); /* 왼쪽 화면 밖 */
     transition: transform 1.5s ease-in-out;
   }
+  .visual_bottom li div {
+    display: block; /* 각 줄을 블록으로 처리 */
+    transform: translateX(-100%); /* 왼쪽 화면 밖으로 이동 */
+    opacity: 0; /* 처음에 보이지 않음 */
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  }
+  
+  /* nth-child로 각 줄에 시간차를 추가 */
+  .visual_bottom li span:nth-child(1) {
+    transition-delay: 0.2s;
+  }
+  
+  .visual_bottom li span:nth-child(2) {
+    transition-delay: 0.4s;
+  }
+  
+  .visual_bottom li span:nth-child(3) {
+    transition-delay: 0.6s;
+  }
   
   .visual_bottom li:nth-child(2) {
     transform: translateX(100%); /* 오른쪽 화면 밖 */
