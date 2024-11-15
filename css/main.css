@@ -103,7 +103,7 @@
     width: 100%;
     position: absolute;
     left: 50%;
-    top: 49%;
+    top: 48%;
     transform: translate(-50%, -50%);
     animation: slideIn 2s ease-out forwards;
   }
@@ -281,6 +281,16 @@
     justify-content: space-between;
     display: flex;
     margin-top: 14vw;
+  }
+
+  .visual_bottom li:nth-child(1) {
+    transform: translateX(-100%); /* 왼쪽 화면 밖 */
+    transition: transform 1.5s ease-in-out;
+  }
+  
+  .visual_bottom li:nth-child(2) {
+    transform: translateX(100%); /* 오른쪽 화면 밖 */
+    transition: transform 1.5s ease-in-out;
   }
 
   /*container*/
