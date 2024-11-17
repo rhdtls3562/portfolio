@@ -1,6 +1,5 @@
 @media (min-width: 1200px) {
   /* header */
-
   .menu {
     font-weight: 600;
     font-family: "Raleway", sans-serif;
@@ -22,7 +21,7 @@
   }
 
   .menu li:hover {
-    background-color: #222;
+    background-color: #000000;
   }
 
   .menu li:hover a {
@@ -93,10 +92,17 @@
     display: flex;
   }
 
-  .top2 h2 {
+  .top2 h2,
+  .top3 h2 {
     white-space: nowrap;
     box-sizing: border-box;
     font-size: 6vw;
+    transition: text-shadow 0.3s ease-in-out;
+  }
+
+  .top2 h2:hover,
+  .top3 h2:hover {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #2a49e8, 0 0 20px #2a49e8;
   }
 
   .kwon_text {
@@ -105,7 +111,7 @@
     left: 50%;
     top: 48%;
     transform: translate(-50%, -50%);
-    animation: slideIn 2s ease-out forwards;
+    animation: slideIn 7s ease-out forwards;
   }
 
   @keyframes slideIn {
@@ -130,8 +136,8 @@
     stroke-dashoffset: 5445; /*애니메이션 시작위치*/
     fill: none;
     stroke: #ffffff;
-    stroke-width: 10;
-    stroke-miterlimit: 10;
+    stroke-width: 20;
+    stroke-miterlimit: 20;
     animation: ani01 1s linear forwards;
   }
 
@@ -140,8 +146,8 @@
     stroke-dashoffset: 14534; /*애니메이션 시작위치*/
     fill: none;
     stroke: #ffffff;
-    stroke-width: 10;
-    stroke-miterlimit: 10;
+    stroke-width: 20;
+    stroke-miterlimit: 20;
     animation: ani02 1s linear 1s forwards;
   }
 
@@ -150,8 +156,8 @@
     stroke-dashoffset: 9417; /*애니메이션 시작위치*/
     fill: none;
     stroke: #ffffff;
-    stroke-width: 10;
-    stroke-miterlimit: 10;
+    stroke-width: 20;
+    stroke-miterlimit: 20;
     animation: ani03 1s linear 2s forwards;
   }
 
@@ -160,8 +166,8 @@
     stroke-dashoffset: 28802; /*애니메이션 시작위치*/
     fill: none;
     stroke: #ffffff;
-    stroke-width: 10;
-    stroke-miterlimit: 10;
+    stroke-width: 20;
+    stroke-miterlimit: 20;
     animation: ani04 1s linear 3s forwards;
   }
 
@@ -247,19 +253,41 @@
     display: flex;
   }
 
-  .top3 h2 {
+  .container_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scroll_wrap {
+    position: relative; /* 자식 요소를 절대 위치로 설정하기 위해 */
+    width: 30vw; /* 이름을 담을 공간 */
+    height: 5.5vw; /* li 높이에 맞춰서 설정 */
+    overflow: hidden; /* 자식 요소가 부모를 넘지 않도록 설정 */
+    color: #fff; /* 글자색 설정 */
+  }
+
+  .scroll_top li {
+    height: 5.5vw; /* 각 항목의 높이 */
+    line-height: 7vw; /* 각 항목의 세로 정렬 */
+    margin-top: -0.5vw;
     white-space: nowrap;
-    box-sizing: border-box;
+    color: transparent;
+    text-transform: uppercase;
+    color: transparent; /* 텍스트의 기본 색상 */
+    -webkit-text-stroke: 2px #fff; /* 흰색 외곽선 추가 */
+    font-weight: 800;
+    font-size: 5.9vw;
+    align-items: center;
+  }
+
+  .top3 h2 {
+    margin-left: -8vw;
+    white-space: nowrap;
     padding-left: 0vw;
     width: 100%;
     box-sizing: border-box;
     font-size: 5.9vw;
-  }
-
-  .top3 h2 span {
-    white-space: nowrap;
-    color: transparent;
-    -webkit-text-stroke: 2px #fff;
   }
 
   .cir4 {
@@ -293,90 +321,32 @@
     opacity: 0; /* 처음에 보이지 않음 */
     transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
   }
-  
+
   /* nth-child로 각 줄에 시간차를 추가 */
   .visual_bottom li span:nth-child(1) {
     transition-delay: 0.2s;
   }
-  
+
   .visual_bottom li span:nth-child(2) {
     transition-delay: 0.4s;
   }
-  
+
   .visual_bottom li span:nth-child(3) {
     transition-delay: 0.6s;
   }
-  
+
   .visual_bottom li:nth-child(2) {
     transform: translateX(100%); /* 오른쪽 화면 밖 */
     transition: transform 1.5s ease-in-out;
   }
 
-  /*container*/
-
-  #container {
-    width: 100%;
-
-    overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+  .visual_logo {
+    transition: transform 0.3s ease, color 0.3s ease;
   }
 
-  #container > section {
-    height: 100%; /* 각 섹션의 높이를 화면 높이에 맞게 설정 */
-    display: flex; /* 섹션의 내용 배치 조정 */
-    align-items: center; /* 세로 중앙 정렬 */
-    justify-content: center; /* 가로 중앙 정렬 */
-    overflow: hidden; /* 내용이 넘칠 때 스크롤바 숨김 */
+  .visual_logo:hover {
+    transform: scale(1.1);
   }
-
-  .con1 {
-    padding: 0px 50px;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
-    background-image: url(../img/bg1.jpg);
-    display: block;
-    height: 100vh; /* 전체 화면 높이로 설정 */
-    background-size: cover;
-  }
-
-  .con1_wrap {
-    padding-top: 4.5vw;
-    margin: auto;
-  }
-
-  .con1_wrap h2 {
-    padding-left: 9vw;
-    margin: auto;
-    font-size: 4vw; /* 폰트 사이즈를 vw로 변경 */
-    font-family: "Raleway", sans-serif;
-    font-weight: 500;
-  }
-
-  .line_one {
-    margin: auto;
-    margin-top: 2vw; /* 마진을 vw로 변경 */
-    width: 80%;
-    height: 2px; /* 두께를 vw로 변경 */
-    background-color: #222;
-  }
-
-  .line_two {
-    margin: auto;
-    margin-top: 0.5vw; /* 마진을 vw로 변경 */
-    width: 80%;
-    height: 2px; /* 두께를 vw로 변경 */
-    background-color: #222;
-    margin-bottom: 3vw; /* 마진을 vw로 변경 */
-  }
-
-  .line_3 {
-    margin: auto;
-    margin-top: 3vw; /* 마진을 vw로 변경 */
-    width: 80%;
-    height: 2px; /* 두께를 vw로 변경 */
-    background-color: #222;
-  }
-
   .cir1,
   .cir2 {
     box-shadow: 0 0 15px #fff; /* 물방울처럼 빛나는 효과 */
@@ -468,1101 +438,1608 @@
     }
   }
 
-  .line_4 {
-    margin: auto;
-    margin-top: 0.5vw; /* 마진을 vw로 변경 */
-    width: 80%;
-    height: 2px; /* 두께를 vw로 변경 */
-    background-color: #222;
-    margin-bottom: 3vw; /* 마진을 vw로 변경 */
-  }
+  /*container*/
 
-  .con1_txt2 {
-    width: 95%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    gap: 6vw; /* 간격을 vw로 변경 */
-    flex-wrap: wrap;
-  }
-
-  .con1_txt2 > li {
-    width: calc(80% / 2); /* 너비를 비율로 유지 */
-  }
-
-  .txt2_2 {
-    margin: auto;
-    width: 90%;
-    display: flex;
-    gap: 2vw; /* 간격을 vw로 변경 */
-    justify-content: left;
-  }
-
-  .con1 p {
-    width: 80%;
-    margin-top: 4vw;
-  }
-
-  .txt2_2 li:nth-child(1) {
-    font-weight: 500;
-    font-size: 3vw; /* 폰트 사이즈를 vw로 변경 */
-  }
-
-  .txt2_2 li:nth-child(2) div {
-    margin-bottom: 1vw;
+  #container {
     width: 100%;
-    font-family: "Raleway", sans-serif;
-    font-size: 2vw; /* 폰트 사이즈를 vw로 변경 */
-    font-weight: 600;
+
+    overflow: hidden; /* 내용이 넘칠 경우 숨김 */
   }
 
-  .con1_txt2 img:nth-child(1) {
-    object-fit: cover;
-    display: block;
-    width: 10vw; /* 너비를 vw로 변경 */
-    height: 10vw; /* 높이를 vw로 변경 */
+  #container > section {
+    height: 100%; /* 각 섹션의 높이를 화면 높이에 맞게 설정 */
+    display: flex; /* 섹션의 내용 배치 조정 */
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    overflow: hidden; /* 내용이 넘칠 때 스크롤바 숨김 */
   }
 
-  .logo {
-    right: 4vw;
-    position: absolute;
-    object-fit: cover;
-    display: block;
-    width: 4vw; /* 너비를 vw로 변경 */
-    height: 4vw; /* 높이를 vw로 변경 */
-  }
-
-  .con1_wrap h2 img {
-    width: 3vw; /* 너비를 vw로 변경 */
-    height: 3vw; /* 높이를 vw로 변경 */
-  }
-
-  /*con2*/
-
-  .con2 {
-    position: relative;
-    z-index: -1px;
-    padding: 2vw;
-    gap: 3vw; /* 간격을 vw로 변경 */
+  .con1 {
+    padding: 5vw;
     box-sizing: border-box;
+    position: relative;
     width: 100%;
-    background-image: url(../img/bg2.jpg);
+    background-image: url(../img/bg1.jpg);
     display: block;
     height: 100vh; /* 전체 화면 높이로 설정 */
     background-size: cover;
   }
 
-  .con2_wrap {
-    position: relative; /* 추가 */
-    width: 90%;
+  .con1_wrap {
     margin: auto;
-    margin-top: 3vw;
   }
 
-  .keyword {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .keyword h5 {
-    font-family: "Raleway", sans-serif;
-    font-size: 2vw;
-  }
-
-  .keyword_2 {
-    margin-top: 3vw; /* 마진을 vw로 변경 */
-    align-items: center;
-    display: flex;
-    margin-bottom: 3vw; /* 마진을 vw로 변경 */
-  }
-
-  .line_5 {
-    margin-top: 1vw; /* 마진을 vw로 변경 */
-    margin-bottom: 1.5vw;
-    width: 25vw;
-    height: 0.1vw; /* 두께를 vw로 변경 */
-    background-color: #222;
-  }
-
-  .line_6 {
-    margin-top: 0.5vw; /* 마진을 vw로 변경 */
-    margin-bottom: 1.5vw;
-    width: 25vw;
-    height: 0.1vw; /* 두께를 vw로 변경 */
-    background-color: #222;
-  }
-
-  .line_7 {
-    margin-top: 0.5vw; /* 마진을 vw로 변경 */
-    margin-bottom: 1vw;
-    width: 25vw;
-    height: 0.1vw; /* 두께를 vw로 변경 */
-    background-color: #222;
-  }
-
-  .keyword_2 li:nth-child(1),
-  .keyword_2 li:nth-child(3),
-  .keyword_2 li:nth-child(5) {
-    background-color: #97e4da;
-    width: 9vw;
-    height: 5vh;
-    line-height: 5vh;
-    text-align: center;
-    border-radius: 2vw; /* 경계 반경을 vw로 변경 */
-    border: 1px solid #222;
-  }
-
-  .keyword_2 li i {
-    padding: 0.5vw; /* 패딩을 vw로 변경 */
-  }
-
-  .keyword_2 li {
-    font-weight: 600;
-  }
-
-  .color {
-    color: #aaa;
-    margin-top: 1vw; /* 마진을 vw로 변경 */
-    margin-bottom: 0.3vw;
-    width: 25vw; /* 너비를 vw로 변경 */
-    height: 1.5vw; /* 높이를 vw로 변경 */
-    border-radius: 1.5vw; /* 경계 반경을 vw로 변경 */
-  }
-  .color_system {
-    margin-top: 3vw;
-  }
-
-  .color_system p {
-    font-family: "Raleway", sans-serif;
-    color: #777;
-  }
-
-  .color1 {
-    background-color: #000;
-  }
-
-  .color2 {
-    background-color: #2a49e8;
-  }
-
-  .color3 {
-    background-color: #3ce9d2;
-  }
-
-  .color_balance {
-    width: 25vw;
-    margin-top: 3.5vw; /* 마진을 vw로 변경 */
-  }
-
-  .color_balance p {
-    text-align: justify;
-    line-height: 25px; /* 줄 높이를 vw로 변경 */
-    color: #777;
-  }
-
-  .liner_wrap {
-    width: 80%;
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    height: 37%;
-    flex-wrap: wrap;
-    z-index: 1;
-    margin-left: 10vw;
-
-    position: relative;
-  }
-
-  .liner_wrap::before {
-    content: "";
-    position: absolute; /* 부모에 대해 절대 위치 설정 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50vh;
-    background-image: url(../img/격자.png); /* 배경 이미지 설정 */
-    filter: grayscale(100%);
-    background-size: cover;
-    background-position: center;
-    mix-blend-mode: multiply; /* 이미지와 배경을 혼합 */
-    opacity: 0.8; /* 투명도 조절 */
-  }
-
-  .logo_wrap {
-    margin-bottom: 80px;
-    padding: 1.5vw 4vw;
-    display: flex;
-    flex-wrap: wrap;
-    z-index: 2; /* 이 요소가 가상 요소 위에 있도록 설정 */
-    margin-left: 13vw;
-    position: relative; /* 내부 요소의 절대 위치를 설정할 수 있도록 */
-  }
-
-  .logo_wrap li {
-    box-sizing: border-box;
-    width: calc(80% / 2);
-  }
-
-  .logo_color {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .logo_wrap li img {
-    z-index: 3; /* logo_wrap의 이미지가 모든 요소 위에 오도록 설정 */
-  }
-
-  .logo_wrap li:nth-child(1) img {
-    margin-left: -9vw;
-    width: 10vw; /* 너비를 vw로 변경 */
-    height: 10vw; /* 높이를 vw로 변경 */
-    object-fit: cover;
-    filter: none;
-  }
-  .logo_wrap li:nth-child(2) img {
-    width: 10vw; /* 너비를 vw로 변경 */
-    height: 10vw; /* 높이를 vw로 변경 */
-    object-fit: cover;
-    filter: none;
-  }
-
-  .logo_wrap li:nth-child(3) img {
-    margin-left: -9vw;
-    width: 10vw; /* 너비를 vw로 변경 */
-    height: 10vw; /* 높이를 vw로 변경 */
-    object-fit: cover;
-    filter: none;
-  }
-
-  .logo_wrap li:nth-child(4) img {
-    width: 10vw; /* 너비를 vw로 변경 */
-    height: 10vw; /* 높이를 vw로 변경 */
-    object-fit: cover;
-    filter: none;
-  }
-
-  .liner_wrap p {
-    width: 100%; /* 너비를 vw로 변경 */
-    text-align: justify;
-  }
-
-  .logo_design {
-    margin-left: 0.5vw; /* 마진을 vw로 변경 */
-  }
-
-  .logo_design p {
-    width: 25vw;
-    margin-top: 1.3vw; /* 마진을 vw로 변경 */
-    color: #777;
-  }
-
-  .logo2 {
-    position: absolute;
-    right: 0vw; /* 위치를 vw로 변경 */
-    bottom: 0vw; /* 위치를 vw로 변경 */
-    object-fit: cover;
-    display: block;
-    width: 5vw; /* 너비를 vw로 변경 */
-    height: 5vw; /* 높이를 vw로 변경 */
-  }
-
-  /*con3*/
-
-  .con3 {
-    z-index: -1px;
-    padding: 2vw;
-    box-sizing: border-box;
-    width: 100%;
-    background-image: url(../img/bg3.jpg);
-    display: block;
-    height: 100vh;
-    background-size: cover;
-  }
-
-  .con3_wrap {
-    position: relative;
-    width: 90%;
+  /* h2 고정 위치 수정 */
+  .con1_wrap h2 {
+    padding-left: 9vw;
     margin: auto;
-    margin-top: 3vw;
-  }
-
-  .profile_img {
-    position: relative;
-    cursor: pointer;
-    background-image: url(../img/picture.JPG);
-    width: 16vw;
-    height: 16vw;
-    object-fit: cover;
-    background-position: center -10px;
-    background-size: cover;
-    border-radius: 50%;
-    box-sizing: border-box;
-    border: 2.5px solid #2a49e8;
-  }
-
-  .hand {
-    position: absolute;
-    left: 12vw;
-    top: 11vw;
-    width: 5.5vw;
-  }
-
-  .button {
-    margin-left: 11.5vw;
-    margin-top: -3vw;
-    width: 8vw;
-  }
-
-  .twingcle {
-    margin-left: 0vw;
-    margin-top: 16vw;
-    width: 3vw;
-  }
-
-  .profile {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .profile h2:nth-child(2) {
-    letter-spacing: -2px;
-    margin-top: 6vw;
-    color: #222;
-    font-size: 2vw;
-  }
-
-  .profile h2:nth-child(3) {
-    letter-spacing: -2px;
-    color: #222;
-    font-size: 2.4vw;
-    color: #2a49e8;
-    margin-bottom: 1vw;
-  }
-
-  .profile li:nth-child(1) h5 {
-    font-size: 1.3vw;
-    line-height: 2.5vw;
-  }
-
-  .profile li:nth-child(1) h5 p {
-    font-size: 1.2vw;
-    display: inline;
-    font-weight: normal;
-    box-sizing: border-box;
-    padding-left: 2vw;
-    color: #555;
-  }
-
-  .education li:nth-child(1) {
-    margin-bottom: 3vw;
-  }
-
-  .education li:nth-child(1) h5 {
-    width: 18vw;
-    height: 3vw;
-    line-height: 3vw;
+    font-size: 4vw; /* 폰트 사이즈를 vw로 변경 */
     font-family: "Raleway", sans-serif;
-    font-size: 1.5vw;
-    color: #2a49e8;
-    border: 1px solid #2a49e8;
-
-    text-align: center;
-    box-sizing: border-box;
-
-    border-radius: 30px;
-    margin-bottom: 1.5vw;
-  }
-
-  .education li:nth-child(1) div {
-    font-size: 1.1vw;
-    color: #555;
-    line-height: 2.5vw;
-    letter-spacing: -1px;
-  }
-
-  .sub {
-    margin-top: -15px;
-    font-size: 0.9vw;
-    color: #aaa;
-    margin-left: 5vw;
-  }
-
-  .education li:nth-child(1) span {
-    margin-right: 30px;
-    color: #aaa;
-  }
-
-  .education li:nth-child(2) h5 {
-    width: 18vw;
-    height: 3vw;
-    line-height: 3vw;
-    font-family: "Raleway", sans-serif;
-    font-size: 1.5vw;
-    color: #2a49e8;
-    border: 1px solid #2a49e8;
-    text-align: center;
-    box-sizing: border-box;
-    border-radius: 30px;
-    margin-bottom: 1.5vw;
-  }
-
-  .education li:nth-child(2) span {
-    margin-right: 2vw;
-    color: #aaa;
-  }
-
-  .education li:nth-child(2) div {
-    font-size: 1.1vw;
-    color: #555;
-    line-height: 2.7vw;
-    letter-spacing: -1px;
-  }
-
-  .certific li:nth-child(1) {
-    margin-bottom: 30px;
-  }
-
-  .certific li:nth-child(1) h5 {
-    width: 18vw;
-    height: 3vw;
-    line-height: 3vw;
-    font-family: "Raleway", sans-serif;
-    font-size: 1.5vw;
-    color: #2a49e8;
-    border: 1px solid #2a49e8;
-    text-align: center;
-    box-sizing: border-box;
-    border-radius: 30px;
-    margin-bottom: 1.5vw;
-  }
-
-  .certific li:nth-child(1) span {
-    margin-right: 30px;
-    color: #aaa;
-  }
-
-  .certific li:nth-child(1) div {
-    font-size: 1.1vw;
-    color: #555;
-    line-height: 2.4vw;
-    letter-spacing: -1px;
-  }
-
-  .certific li:nth-child(2) h5 {
-    width: 18vw;
-    height: 3vw;
-    line-height: 3vw;
-    font-family: "Raleway", sans-serif;
-    font-size: 1.5vw;
-    color: #2a49e8;
-    border: 1px solid #2a49e8;
-    text-align: center;
-    box-sizing: border-box;
-    border-radius: 30px;
-    margin-bottom: 2vw;
-  }
-
-  .wrap2 {
-    overflow: hidden;
-    position: relative;
-    display: flex; /* Flexbox 사용 */
-    justify-content: center; /* 수평 중앙 정렬 */
-    align-items: center; /* 수직 중앙 정렬 */
-    margin-left: 30px;
-    margin-right: 25px;
-    position: relative;
-    background-color: #aaa;
-    padding: 0vw 12vw;
-    box-sizing: border-box;
-  }
-
-  .skill h4 {
-    font-size: 1.1vw;
     font-weight: 500;
-    font-family: "Raleway", sans-serif;
+  }
+
+  /* 문자 스타일 */
+  .con1_wrap h2 a .char {
     display: inline-block;
-    width: 100px;
+    overflow: hidden;
+    color: transparent;
+    position: relative;
   }
 
-  .blue {
+  .con1_wrap h2 a .char::before,
+  .con1_wrap h2 a .char::after {
+    content: attr(data-char);
     position: absolute;
-    margin: auto;
-    top: 0vw;
-    left: 0vw;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s;
+    transition-delay: calc(30ms * var(--char-index));
+    opacity: 1;
+  }
+
+  .con1_wrap h2 a .char::before {
+    transform: translateY(100%);
+    opacity: 1;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+}
+
+.con1_wrap h2 a .char::after {
+  color: black; /* 텍스트 색상을 검정으로 설정 */
+  text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+/* 마우스 hover 시 문자 효과 */
+.con1_wrap h2 a:hover .char::before {
+  transform: translateY(0);
+}
+
+.con1_wrap h2 a:hover .char::after {
+  transform: translateY(-100%);
+}
+
+.line_1,
+.line_2,
+.line_3,
+.line_4 {
+  margin: auto;
+  width: 80%;
+  height: 0.1vw; /* 두께를 vw로 변경 */
+  background-color: #222; /* 배경색 */
+}
+
+.line_2 {
+  margin-top: 0.5vw;
+  margin-bottom: 3vw;
+}
+
+.line_3 {
+  margin-top: 3vw;
+}
+
+.line_4 {
+  margin-top: 0.5vw;
+  margin-bottom: 3vw;
+}
+
+.con1_txt2 {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  gap: 4vw; /* 간격을 vw로 변경 */
+  flex-wrap: wrap;
+}
+
+.con1_txt2 > li {
+  width: calc(80% / 2); /* 너비를 비율로 유지 */
+}
+
+.txt2_2 {
+  margin: auto;
+  width: 90%;
+  display: flex;
+  gap: 2vw; /* 간격을 vw로 변경 */
+  justify-content: left;
+}
+
+.con1 p {
+  width: 80%;
+  margin-top: 4vw;
+}
+
+.txt2_2 li:nth-child(1) {
+  font-weight: 500;
+  font-size: 3vw; /* 폰트 사이즈를 vw로 변경 */
+}
+
+.txt2_2 li:nth-child(2) div {
+  margin-bottom: 1vw;
+  width: 100%;
+  font-family: "Raleway", sans-serif;
+  font-size: 2vw; /* 폰트 사이즈를 vw로 변경 */
+  font-weight: 600;
+}
+
+.con1_txt2 img:nth-child(1) {
+  object-fit: cover;
+  display: block;
+  width: 10vw; /* 너비를 vw로 변경 */
+  height: 10vw; /* 높이를 vw로 변경 */
+}
+
+.con1_txt2 img:nth-child(1):hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.5s;
+  box-shadow: rgba(169, 169, 169, 0.4) 5px 5px,
+    rgba(169, 169, 169, 0.3) 10px 10px, rgba(169, 169, 169, 0.2) 15px 15px,
+    rgba(169, 169, 169, 0.1) 20px 20px, rgba(169, 169, 169, 0.05) 25px 25px;
+}
+
+.twningcle {
+  top: 1vw;
+  left: 32vw;
+  position: absolute;
+  width: 3vw; /* 너비를 vw로 변경 */
+  height: 3vw; /* 높이를 vw로 변경 */
+}
+
+.con1_wrap,
+.line_one,
+.line_two,
+.line_3,
+.line_4,
+.con1_txt2,
+.logo {
+  opacity: 0;
+  transform: translateY(50px); /* 아래로 이동 */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* 초기 상태: 숨김 + 왼쪽으로 이동 */
+.line-inactive {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* 활성화 상태: 자연스럽게 나타남 + 제자리 */
+.line-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.line {
+  width: 0;
+  background-color: #222;
+  transition: width 1s ease;
+}
+
+.line-dotted-active {
+  width: 80%;
+}
+
+/* 일반 요소 (페이드 인 + 슬라이드 업) */
+.inactive {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*con2*/
+
+.con2 {
+  position: relative;
+  z-index: -1px;
+  padding: 1vw;
+  gap: 3vw; /* 간격을 vw로 변경 */
+  box-sizing: border-box;
+  width: 100%;
+  background-image: url(../img/bg2.jpg);
+  display: block;
+  height: 100vh; /* 전체 화면 높이로 설정 */
+  background-size: cover;
+}
+
+.con2_wrap {
+  position: relative; /* 추가 */
+  width: 90%;
+  margin: auto;
+  margin-top: 3vw;
+}
+
+.keyword {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.keyword > li {
+  opacity: 0; /* 초기에는 보이지 않음 */
+  transform: translateX(
+    0
+  ); /* 화면에서 벗어난 위치에 두지 않고, 기본 위치 유지 */
+  transition: opacity 1s, transform 1s; /* 트랜지션 효과 */
+}
+
+/* 왼쪽에서 들어오는 애니메이션 */
+.keyword > li.left {
+  transform: translateX(-100%); /* 처음에는 왼쪽 밖에 위치 */
+}
+
+/* 오른쪽에서 들어오는 애니메이션 */
+.keyword > li.right {
+  transform: translateX(100%); /* 처음에는 오른쪽 밖에 위치 */
+}
+
+/* 화면에 보였을 때 애니메이션을 적용 */
+.keyword > li.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 각 항목의 애니메이션 지연 시간 */
+.keyword > li:nth-child(1).left {
+  animation-delay: 0.5s;
+}
+
+.keyword > li:nth-child(2).right {
+  animation-delay: 1s;
+}
+
+.keyword > li:nth-child(3).left {
+  animation-delay: 1.5s;
+}
+
+.keyword > li:nth-child(4).right {
+  animation-delay: 2s;
+}
+
+.keyword h5 {
+  font-family: "Raleway", sans-serif;
+  font-size: 2vw;
+}
+
+.keyword_2 {
+  margin-top: 3vw; /* 마진을 vw로 변경 */
+  align-items: center;
+  display: flex;
+  margin-bottom: 3vw; /* 마진을 vw로 변경 */
+}
+
+.con1_wrap h2 {
+  padding-left: 9vw;
+  margin: auto;
+  font-size: 4vw; /* 폰트 사이즈를 vw로 변경 */
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+}
+
+/* 문자 스타일 */
+.h51 a .char,
+.h52 a .char,
+.h53 a .char,
+.h54 a .char {
+  display: inline-block;
+  overflow: hidden;
+  color: transparent;
+  position: relative;
+}
+
+.h51 a .char::before,
+.h51 a .char::after,
+.h52 a .char::before,
+.h52 a .char::after,
+.h53 a .char::before,
+.h53 a .char::after,
+.h54 a .char::before,
+.h54 a .char::after {
+  content: attr(data-char);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 0.3s;
+  transition-delay: calc(30ms * var(--char-index));
+  opacity: 1;
+}
+
+.h51 a .char::before,
+.h52 a .char::before,
+.h53 a .char::before,
+.h54 a .char::before {
+  transform: translateY(100%);
+  opacity: 1;
+  color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.h51 a .char::after,
+.h52 a .char::after,
+.h53 a .char::after,
+.h54 a .char::after {
+  color: black; /* 텍스트 색상을 검정으로 설정 */
+  text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+/* 마우스 hover 시 문자 효과 */
+.h51 a:hover .char::before,
+.h52 a:hover .char::before,
+.h53 a:hover .char::before,
+.h54 a:hover .char::before {
+  transform: translateY(0);
+}
+
+.h51 a:hover .char::after,
+.h52 a:hover .char::after,
+.h53 a:hover .char::after,
+.h54 a:hover .char::after {
+  transform: translateY(-100%);
+}
+
+.line_5 {
+  margin-top: 1vw; /* 마진을 vw로 변경 */
+  margin-bottom: 1.5vw;
+  width: 25vw;
+  height: 0.1vw; /* 두께를 vw로 변경 */
+  background-color: #222;
+}
+
+.line_6 {
+  margin-top: 0.5vw; /* 마진을 vw로 변경 */
+  margin-bottom: 1.5vw;
+  width: 25vw;
+  height: 0.1vw; /* 두께를 vw로 변경 */
+  background-color: #222;
+}
+
+.line_7 {
+  margin-top: 0.5vw; /* 마진을 vw로 변경 */
+  margin-bottom: 1vw;
+  width: 25vw;
+  height: 0.1vw; /* 두께를 vw로 변경 */
+  background-color: #222;
+}
+
+.keyword_2 li:nth-child(1),
+.keyword_2 li:nth-child(3),
+.keyword_2 li:nth-child(5) {
+  background-color: #97e4da;
+  width: 9vw;
+  height: 5vh;
+  line-height: 5vh;
+  text-align: center;
+  border-radius: 2vw; /* 경계 반경을 vw로 변경 */
+  border: 1px solid #222;
+}
+
+.keyword_2 li i {
+  padding: 0.5vw; /* 패딩을 vw로 변경 */
+}
+
+.keyword_2 li {
+  font-weight: 600;
+  position: absolute; /* 겹치도록 설정 */
+  top: 0; /* 겹치는 위치를 동일하게 설정 */
+  left: 50%; /* 가운데 정렬 */
+  transform: translate(-50%, -50%) scale(0); /* 초기 크기 축소 */
+  opacity: 0; /* 투명도 0 */
+  transition: all 0.5s ease; /* 애니메이션 설정 */
+}
+
+.keyword_2 li.show {
+  position: static; /* 펼쳐지면서 원래 위치로 */
+  transform: translate(0, 0) scale(1); /* 크기 복원 */
+  opacity: 1; /* 보이게 변경 */
+}
+
+.color {
+  color: #aaa;
+  margin-top: 1vw; /* 마진을 vw로 변경 */
+  margin-bottom: 0.3vw;
+  width: 0; /* 초기 너비 0으로 설정 */
+  height: 1.5vw; /* 높이를 vw로 변경 */
+  border-radius: 1.5vw; /* 경계 반경을 vw로 변경 */
+  transition: width 2s ease; /* width가 천천히 변화하도록 애니메이션 설정 */
+}
+
+.color_system {
+  margin-top: 3vw;
+}
+
+.color_system p {
+  font-family: "Raleway", sans-serif;
+  color: #777;
+}
+
+.color1 {
+  background-color: #000;
+}
+
+.color2 {
+  background-color: #2a49e8;
+}
+
+.color3 {
+  background-color: #3ce9d2;
+}
+
+.color_balance {
+  width: 25vw;
+  margin-top: 3.5vw; /* 마진을 vw로 변경 */
+}
+
+.color_balance p {
+  text-align: justify;
+  line-height: 25px; /* 줄 높이를 vw로 변경 */
+  color: #777;
+}
+
+.liner_wrap {
+  width: 80%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: 37%;
+  flex-wrap: wrap;
+  z-index: 1;
+  margin-left: 10vw;
+
+  position: relative;
+}
+
+.liner_wrap::before {
+  content: "";
+  position: absolute; /* 부모에 대해 절대 위치 설정 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  background-image: url(../img/격자.png); /* 배경 이미지 설정 */
+  filter: grayscale(100%);
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: multiply; /* 이미지와 배경을 혼합 */
+  opacity: 0.8; /* 투명도 조절 */
+}
+
+.logo_wrap {
+  margin-bottom: 5vw;
+  padding: 1vw 3vw;
+  display: flex;
+  gap: 1vw;
+  flex-wrap: wrap;
+  z-index: 3; /* 이 요소가 가상 요소 위에 있도록 설정 */
+  margin-left: 13vw;
+  position: relative; /* 내부 요소의 절대 위치를 설정할 수 있도록 */
+}
+
+.logo_wrap li {
+  box-sizing: border-box;
+  width: calc(80% / 2);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8); /* 초기에는 작고 아래로 */
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.1); /* 화면에 나타날 때 위로 튀어오르고 약간 커짐 */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* 최종적으로 원래 크기와 위치로 */
+  }
+}
+
+.logo_color {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.logo_wrap li img {
+  opacity: 0;
+  transform: translateY(20px) scale(0.8); /* 요소가 화면에 나타날 때 아래에서 올라오면서 작게 시작 */
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0s; /* 기본적으로 delay는 0초로 설정 */
+  z-index: 3; /* logo_wrap의 이미지가 모든 요소 위에 오도록 설정 */
+}
+
+.logo_wrap li:nth-child(1) img {
+  margin-left: -9vw;
+  width: 10vw; /* 너비를 vw로 변경 */
+
+  object-fit: cover;
+  filter: none;
+  animation-delay: 0.3s;
+}
+.logo_wrap li:nth-child(2) img {
+  width: 10vw; /* 너비를 vw로 변경 */
+  object-fit: cover;
+  filter: none;
+  animation-delay: 0.6s;
+}
+
+.logo_wrap li:nth-child(3) img {
+  margin-left: -9vw;
+  width: 10vw; /* 너비를 vw로 변경 */
+  object-fit: cover;
+  filter: none;
+  animation-delay: 0.9s;
+}
+
+.logo_wrap li:nth-child(4) img {
+  width: 10vw; /* 너비를 vw로 변경 */
+  object-fit: cover;
+  filter: none;
+  animation-delay: 1.2s;
+}
+
+.liner_wrap p {
+  width: 100%; /* 너비를 vw로 변경 */
+  text-align: justify;
+}
+
+.logo_design {
+  margin-left: 0.5vw; /* 마진을 vw로 변경 */
+}
+
+.logo_design p {
+  width: 25vw;
+  margin-top: 1.3vw; /* 마진을 vw로 변경 */
+  color: #777;
+}
+
+.logo2 {
+  position: absolute;
+  right: 0vw; /* 위치를 vw로 변경 */
+  bottom: 0vw; /* 위치를 vw로 변경 */
+  object-fit: cover;
+  display: block;
+  width: 5vw; /* 너비를 vw로 변경 */
+  height: 5vw; /* 높이를 vw로 변경 */
+}
+
+/*con3*/
+
+.con3 {
+  z-index: -1px;
+  padding: 2vw;
+  box-sizing: border-box;
+  width: 100%;
+  background-image: url(../img/bg3.jpg);
+  display: block;
+  height: 100vh;
+  background-size: cover;
+}
+
+.con3_wrap {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  margin-top: 3vw;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transform: scale(0.5);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+/* 화면에 보이면 visible 클래스가 추가되어 애니메이션이 실행 */
+.fade-in.visible {
+  opacity: 1;
+  transform: scale(1);
+  transform: translateY(0);
+}
+
+.profile_img {
+  position: relative;
+  cursor: pointer;
+  background-image: url(../img/picture.JPG);
+  width: 16vw;
+  height: 16vw;
+  object-fit: cover;
+  background-position: center -10px;
+  background-size: cover;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 2.5px solid #2a49e8;
+  transition: transform 0.5s; /* 확대 애니메이션 */
+}
+
+.profile_img:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.bold:hover .wave.-three {
+  animation: drift 5000ms infinite linear;
+}
+
+.bold:hover .wave.-two {
+  animation: drift 7000ms infinite linear;
+  opacity: 0.1;
+  background: yellow;
+}
+
+.bold:hover .wave {
+  opacity: 0.4;
+  position: absolute;
+  bottom: 50%;
+  left: -30%;
+  background: #0af;
+  width: 30vw;
+  height: 30vw;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  animation: drift 3000ms infinite linear;
+}
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bold:hover {
+  color: #fff;
+  border: 1px solid #81e6ff;
+  background-color: #81e6ff;
+  transition: 0.5s;
+  transform: translate3d(0, 0, 0);
+}
+
+.bold {
+  border: 1px solid #2a49e8;
+  color: #2a49e8;
+  overflow: hidden;
+  position: relative;
+}
+
+.modal {
+  margin: auto;
+  display: none; /* 기본적으로 숨겨짐 */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* 반투명 배경 */
+  padding-top: 7vw;
+}
+
+#full-text {
+  text-align: center;
+  font-weight: 400;
+  font-family: "Gowun Batang", serif;
+  letter-spacing: -1px;
+  line-height: 2.5vw;
+}
+
+.modal-content {
+  overflow: hidden;
+  background-image: url(../img/letter.jpg);
+  background-position: center center;
+  background-size: cover;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-content h3 {
+  letter-spacing: -1px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+#typing-effect {
+  text-align: center;
+  font-weight: 400;
+  font-family: "Gowun Batang", serif;
+  letter-spacing: -1px;
+  line-height: 2.5vw;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hand {
+  position: absolute;
+  left: 12vw;
+  top: 11vw;
+  width: 5.5vw;
+}
+
+.button {
+  margin-left: 11.5vw;
+  margin-top: -3vw;
+  width: 8vw;
+}
+
+.twingcle {
+  margin-left: 0vw;
+  margin-top: 16vw;
+  width: 3vw;
+}
+
+.profile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile h2:nth-child(2) {
+  letter-spacing: -2px;
+  margin-top: 6vw;
+  color: #222;
+  font-size: 2vw;
+}
+
+.profile h2:nth-child(3) {
+  letter-spacing: -2px;
+  color: #222;
+  font-size: 2.4vw;
+  color: #2a49e8;
+  margin-bottom: 1vw;
+}
+
+.profile li:nth-child(1) h5 {
+  font-size: 1.3vw;
+  line-height: 2.5vw;
+}
+
+.profile li:nth-child(1) h5 p {
+  font-size: 1.2vw;
+  display: inline;
+  font-weight: normal;
+  box-sizing: border-box;
+  padding-left: 2vw;
+  color: #222;
+}
+
+.education li:nth-child(1) {
+  margin-bottom: 3vw;
+}
+
+.education li:nth-child(1) h5 {
+  width: 18vw;
+  height: 3vw;
+  line-height: 3vw;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5vw;
+  text-align: center;
+  box-sizing: border-box;
+
+  border-radius: 30px;
+  margin-bottom: 1.5vw;
+}
+
+.education li:nth-child(1) div {
+  font-size: 1.1vw;
+  color: #555;
+  line-height: 2.5vw;
+  letter-spacing: -1px;
+}
+
+.sub {
+  margin-top: -15px;
+  font-size: 0.9vw;
+  color: #999;
+  margin-left: 5.5vw;
+}
+
+.education li:nth-child(1) span {
+  margin-right: 30px;
+  color: #888;
+}
+
+.publisher:hover {
+  box-sizing: border-box;
+  border-bottom: 3px solid #2a49e8;
+  transition: 0.5s;
+}
+
+.education li:nth-child(2) h5 {
+  width: 18vw;
+  height: 3vw;
+  line-height: 3vw;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5vw;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 30px;
+  margin-bottom: 1.5vw;
+}
+
+.education li:nth-child(2) span {
+  margin-right: 2vw;
+  color: #888;
+}
+
+.education li:nth-child(2) div {
+  font-size: 1.1vw;
+  color: #555;
+  line-height: 2.7vw;
+  letter-spacing: -1px;
+}
+
+.certific li:nth-child(1) {
+  margin-bottom: 30px;
+}
+
+.certific li:nth-child(1) h5 {
+  width: 18vw;
+  height: 3vw;
+  line-height: 3vw;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5vw;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 30px;
+  margin-bottom: 1.5vw;
+}
+
+.certific li:nth-child(1) span {
+  margin-right: 30px;
+  color: #888;
+}
+
+.certific li:nth-child(1) div {
+  font-size: 1.1vw;
+  color: #555;
+  line-height: 2.4vw;
+  letter-spacing: -1px;
+}
+
+.certific li:nth-child(2) h5 {
+  width: 18vw;
+  height: 3vw;
+  line-height: 3vw;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5vw;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 30px;
+  margin-bottom: 2vw;
+}
+
+.wrap2 {
+  overflow: hidden;
+  position: relative;
+  display: flex; /* Flexbox 사용 */
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  margin-left: 30px;
+  margin-right: 25px;
+  position: relative;
+  background-color: #aaa;
+  padding: 0vw 12vw;
+  box-sizing: border-box;
+  width: 80%; /* wrap2의 고정 너비 */
+}
+
+.skill h4 {
+  font-size: 1.1vw;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+  display: inline-block;
+  width: 100px;
+}
+
+/* 기본 스타일 */
+.blue {
+  position: absolute;
+  margin: auto;
+  top: 0vw;
+  left: 0vw;
+  box-sizing: border-box;
+  background-color: #2a49e8; /* 파란색 게이지 */
+  padding: 0.9vw;
+  opacity: 0; /* 기본적으로 보이지 않음 */
+  transition: opacity 0.3s ease; /* 부드럽게 나타나도록 */
+}
+
+/* .start-animation 클래스가 추가되면 애니메이션을 실행 */
+.start-animation {
+  opacity: 1; /* 보이게 설정 */
+}
+
+@keyframes paddingAnimationBlue1 {
+  0% {
+    padding: 0.9vw;
+  }
+  100% {
     padding: 0.9vw 12vw;
-    box-sizing: border-box;
-    position: absolute;
-    background-color: #2a49e8;
   }
+}
 
-  .blue2 {
+@keyframes paddingAnimationBlue2 {
+  0% {
+    padding: 0.9vw;
+  }
+  100% {
     padding: 0.8vw 11.5vw;
-    box-sizing: border-box;
   }
+}
 
-  .blue3 {
+@keyframes paddingAnimationBlue3 {
+  0% {
+    padding: 0.9vw;
+  }
+  100% {
     padding: 0.8vw 10vw;
-    box-sizing: border-box;
   }
+}
 
-  .blue4 {
+@keyframes paddingAnimationBlue4 {
+  0% {
+    padding: 0.9vw;
+  }
+  100% {
     padding: 0.8vw 11vw;
-    box-sizing: border-box;
   }
+}
 
-  .blue5 {
+@keyframes paddingAnimationBlue5 {
+  0% {
+    padding: 0.9vw;
+  }
+  100% {
     padding: 0.8vw 10.5vw;
-    box-sizing: border-box;
   }
+}
 
-  .blue6 {
+@keyframes paddingAnimationBlue6 {
+  0% {
+    padding: 0.9vw;
+  }
+  100% {
     padding: 0.8vw 10vw;
-    box-sizing: border-box;
   }
-
-  .skill div {
-    font-size: 1.1vw;
-    color: #555;
-    display: inline;
-  }
-
-  .skill {
-    font-size: 1.1vw;
-    color: #555;
-    margin-top: 1.3vw;
-  }
-
-  .logo3 {
-    position: absolute;
-    right: 0vw; /* 위치를 vw로 변경 */
-    top: 0vw; /* 위치를 vw로 변경 */
-    object-fit: cover;
-    display: block;
-    width: 5vw; /* 너비를 vw로 변경 */
-    height: 5vw; /* 높이를 vw로 변경 */
-  }
-
-  /*con4*/
-
-  .con4 {
-    position: relative;
-    z-index: -1px;
-    padding: 2vw;
-    box-sizing: border-box;
-    width: 100%;
-    background-image: url(../img/bg4.jpg);
-    display: block;
-    height: 100vh;
-    background-size: cover;
-  }
-
-  .con4_wrap {
-    display: flex;
-
-    width: 90%;
-    margin: auto;
-  }
-
-  .mockups img {
-    padding-left: 0vw;
-    margin-top: 15vw;
-    right: 30vw;
-    width: 35vw;
-    object-fit: cover;
-  }
-
-  .mockupss {
-    position: relative;
-  }
-
-  .mockupss img:nth-child(1) {
-    margin-right: 2vw;
-    margin-top: 2vw;
-    width: 23vw;
-  }
-
-  .website h5 {
-    line-height: 30px;
-    font-size: 3vw;
-    font-weight: 500;
-    font-family: "Raleway", sans-serif;
-    margin-top: 3.5vw;
-  }
-
-  .website h2 {
-    font-size: 5vw;
-    color: #2a49e8;
-    font-family: "Raleway", sans-serif;
-  }
-
-  .website h4 {
-    font-size: 1.5vw;
-    color: #555;
-    margin-top: 1.2vw;
-    margin-bottom: 1.2vw;
-  }
-
-  .website p {
-    font-size: 1vw;
-    font-weight: 600;
-    margin-bottom: 1.5vw;
-  }
-
-  .website div {
-    font-size: 1vw;
-    line-height: 1.6vw;
-    color: #555;
-  }
-
-  .website span {
-    font-weight: 600;
-    margin-right: 1.3vw;
-  }
-
-  .mar {
-    padding-right: 0.8vw;
-    box-sizing: border-box;
-  }
-
-  .con4_img {
-    display: flex;
-    justify-content: left;
-  }
-
-  .con4_img img {
-    cursor: pointer;
-    margin-top: 1.3vw;
-    margin-right: 1vw;
-    width: 7.7vw;
-    object-fit: cover;
-    margin-bottom: 5vw;
-  }
-
-  .website h6 {
-    margin-bottom: 0.5vw;
-    letter-spacing: -0.5px;
-    font-size: 1.2vw;
-    color: #2a49e8;
-  }
-
-  .con4_img2 {
-    display: flex;
-    gap: 1vw;
-  }
-
-  .con4_img2 img {
-    padding: 0.7vw;
-    background-color: #fff;
-    object-fit: cover;
-    height: 3vw;
-    width: 3vw;
-    border-radius: 50%;
-    border: 3px solid #2a49e8;
-    margin-bottom: 0.5vw;
-  }
-
-  .website p {
-    font-weight: 500;
-    line-height: 1.3vw;
-    color: #555;
-    width: 20vw;
-    font-size: 0.8vw;
-    text-align: justify;
-  }
-
-  .mockupss img:nth-child(2) {
-    right: -15%;
-    top: 50%;
-    position: absolute;
-    cursor: pointer;
-    width: 4vw;
-  }
-
-  .logo_4 {
-    position: absolute;
-    right: -4vw; /* 위치를 vw로 변경 */
-    bottom: 1vw; /* 위치를 vw로 변경 */
-    object-fit: cover;
-    display: block;
-    width: 4vw; /* 너비를 vw로 변경 */
-    height: 4vw; /* 높이를 vw로 변경 */
-  }
-
-  /*con5*/
-
-  .con5 {
-    position: relative;
-    z-index: -1px;
-    padding: 2vw;
-    box-sizing: border-box;
-    width: 100%;
-    background-image: url(../img/bg5.jpg);
-    display: block;
-    height: 100vh;
-    background-size: cover;
-  }
-
-  .con5_wrap {
-    position: relative;
-    display: flex;
-    width: 90%;
-    margin: auto;
-  }
-
-  .mockupssss {
-    gap: 5vw;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .img1 {
-    margin-top: 2vw;
-    width: 33vw;
-  }
-
-  .mockup_1 {
-    position: relative;
-  }
-
-  .img2 {
-    position: absolute;
-    top: 24vw;
-    left: 9vw;
-    width: 13vw;
-  }
-
-  .com {
-    position: absolute;
-    color: #555;
-    writing-mode: vertical-rl; /* 세로 방향으로 글자 표시 */
-    top: 10vw;
-    left: 33vw;
-    text-orientation: mixed;
-    font-size: 0.7vw; /* 글자 크기 */
-  }
-
-  .pro {
-    position: absolute;
-    top: 31vw;
-    left: 23vw;
-    font-size: 0.7vw;
-  }
-
-  .used {
-    font-size: 1.3vw;
-    margin-top: 5vw;
-    margin-bottom: 1vw;
-  }
-
-  .photoshop {
-    align-items: center;
-    display: flex;
-    gap: 1vw;
-  }
-
-  .photoshop li:nth-child(1) img {
-    width: 2.5vw;
-    height: 2.5vw;
-    object-fit: cover;
-    background-color: #fff;
-    border: 3px solid #2a49e8;
-    padding: 0.6vw;
-    border-radius: 50%;
-  }
-
-  .photoshop li:nth-child(2) img {
-    width: 2.5vw;
-    height: 2.5vw;
-    object-fit: cover;
-    background-color: #fff;
-    border: 3px solid #2a49e8;
-
-    padding: 0.6vw;
-    border-radius: 50%;
-  }
-
-  .photoshop li:nth-child(3) img {
-    width: 2.5vw;
-    height: 2.5vw;
-    object-fit: cover;
-    background-color: #fff;
-    border: 3px solid #2a49e8;
-    padding: 0.6vw;
-    border-radius: 50%;
-  }
-
-  .photoshop li:nth-child(4) img {
-    cursor: pointer;
-    margin-left: 2vw;
-    width: 11.5vw;
-  }
-
-  .baner {
-    width: 20vw;
-    margin-top: 3vw;
-    margin-bottom: 1vw;
-  }
-
-  .tshirts {
-    margin-top: 3vw;
-    width: 23vw;
-  }
-
-  .banner_wrap {
-    position: relative;
-  }
-
-  .over {
-    font-size: 1.5vw;
-    margin-bottom: 0.5vw;
-  }
-
-  .banner_wrap p {
-    font-size: 0.8vw;
-    color: #555;
-  }
-
-  .alin {
-    font-size: 0.8vw;
-    color: #555;
-    top: 5vw;
-    right: -2.5vw;
-    position: absolute;
-    writing-mode: vertical-rl; /* 세로 방향으로 글자 표시 */
-    text-orientation: mixed; /* 글자 방향 설정 (기본값) */
-  }
-
-  .tshirts_wrap div {
-    font-size: 0.9vw;
-    margin-top: 2vw;
-    margin-left: 5vw;
-    color: #555;
-  }
-
-  .logo_5 {
-    position: absolute;
-    right: -3vw; /* 위치를 vw로 변경 */
-    bottom: 0vw; /* 위치를 vw로 변경 */
-    object-fit: cover;
-    display: block;
-    width: 4vw; /* 너비를 vw로 변경 */
-    height: 4vw; /* 높이를 vw로 변경 */
-  }
-  /*con6*/
-
-  .con6 {
-    position: relative;
-    z-index: -1px;
-    padding: 2vw;
-    box-sizing: border-box;
-    width: 100%;
-    background-image: url(../img/bg6.jpg);
-    display: block;
-    height: 100vh;
-    background-size: cover;
-  }
-
-  .txtwrap {
-    position: relative;
-    text-align: center;
-  }
-
-  .txtwrap1 {
-    top: 1.5vw;
-  }
-
-  .txtwrap p {
-    font-size: 1vw;
-    padding-bottom: 0.9vw;
-    margin: auto;
-    width: 13vw;
-  }
-
-  .txtwrap h2 {
-    font-size: 1vw;
-    font-weight: 600;
-    margin-bottom: 1vw;
-    font-family: "Raleway", sans-serif;
-  }
-
-  .txtwrap p {
-    font-size: 0.9vw;
-  }
-
-  .txtwrap div {
-    font-size: 1vw;
-    font-weight: 600;
-  }
-
-  .txtwrap2 {
-    display: flex;
-    gap: 15vw;
-    justify-content: space-around;
-  }
-
-  .txtwrap2 li:nth-child(1) {
-    text-align: right;
-  }
-
-  .txtwrap2 li:nth-child(2) {
-    text-align: left;
-  }
-
-  .txtwrap3 li:nth-child(3) {
-    text-align: left;
-  }
-
-  .txtwrap3 {
-    display: flex;
-    margin-top: 12vw;
-    justify-content: space-around;
-  }
-
-  .txtwrap3 li:nth-child(1) {
-    text-align: right;
-  }
-
-  .click2 {
-    top: 5vw;
-    position: absolute;
-    font-size: 0.8vw;
-    color: #555;
-  }
-
-  .txtwrap3 li:nth-child(2) {
-    text-align: left;
-  }
-
-  .circle_2 {
-    box-shadow: 0px 0px 10px #999;
-    position: relative;
-    width: 50vw;
-    height: 50vw;
-    background-color: #fff;
-    border-radius: 50%;
-    left: 25vw;
-    top: 12vw;
-    transform: translate(-50%, -50%);
-  }
-
-  .circle_2 img {
-    position: absolute;
-  }
-
-  .insta {
-    cursor: pointer;
-    border-radius: 50%;
-    padding: 1.5vw;
-    background-color: #fff;
-    left: -2vw;
-    top: 14vw;
-    box-shadow: 0px 0px 10px #999;
-    width: 4vw;
-  }
-
-  .blog {
-    cursor: pointer;
-    border-radius: 50%;
-    padding: 1.5vw;
-    background-color: #fff;
-    left: 6vw;
-    top: 2vw;
-    box-shadow: 0px 0px 10px #999;
-    width: 4vw;
-  }
-
-  .kakao {
-    cursor: pointer;
-    border-radius: 50%;
-    padding: 1.5vw;
-    background-color: #fff;
-    left: 21vw;
-    top: -3.5vw;
-    box-shadow: 0px 0px 10px #999;
-    width: 4vw;
-  }
-
-  .email {
-    cursor: pointer;
-    border-radius: 50%;
-    padding: 1.5vw;
-    background-color: #fff;
-    right: 6vw;
-    top: 2vw;
-    box-shadow: 0px 0px 10px #999;
-    width: 4vw;
-  }
-
-  .call {
-    cursor: pointer;
-    border-radius: 50%;
-    padding: 1.5vw;
-    background-color: #fff;
-    right: -2vw;
-    top: 14vw;
-    box-shadow: 0px 0px 10px #999;
-    width: 4vw;
-  }
-
-  .rom {
-    width: 11.5vw;
-    left: 25vw;
-    bottom: 9vw;
-    transform: translate(-50%, -50%);
-  }
-
-  .twing {
-    width: 2.5vw;
-    left: 35%;
-    top: 45%;
-    transform: translate(-50%, -50%);
-  }
-
-  .twing2 {
-    width: 2.5vw;
-    right: 30%;
-    top: 45%;
-    transform: translate(-50%, -50%);
-  }
-
-  .rom_explan {
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    top: 23%;
-    transform: translate(-50%, -50%);
-  }
-
-  .rom_explan h5 {
-    font-family: "Raleway", sans-serif;
-    font-size: 2vw;
-    font-weight: 400;
-    margin-bottom: 1.5vw;
-  }
-
-  .rom_explan h5 span {
-    font-weight: 800;
-  }
-
-  .rom_explan p {
-    letter-spacing: -1px;
-    font-weight: 500;
-    font-size: 1.5vw;
-    margin: auto;
-    width: 100%;
-  }
-
-  .logo_6 {
-    position: absolute;
-    right: -21vw; /* 위치를 vw로 변경 */
-    top: -14vw; /* 위치를 vw로 변경 */
-    object-fit: cover;
-    display: block;
-    width: 4vw; /* 너비를 vw로 변경 */
-    height: 4vw; /* 높이를 vw로 변경 */
-  }
+}
+
+/* 각 .blue 요소에 애니메이션을 적용 */
+.start-animation.blue1 {
+  animation: paddingAnimationBlue1 4s ease-out forwards;
+}
+
+.start-animation.blue2 {
+  animation: paddingAnimationBlue2 4s ease-out forwards;
+}
+
+.start-animation.blue3 {
+  animation: paddingAnimationBlue3 4s ease-out forwards;
+}
+
+.start-animation.blue4 {
+  animation: paddingAnimationBlue4 4s ease-out forwards;
+}
+
+.start-animation.blue5 {
+  animation: paddingAnimationBlue5 4s ease-out forwards;
+}
+
+.start-animation.blue6 {
+  animation: paddingAnimationBlue6 4s ease-out forwards;
+}
+
+/* .blue1 {
+  padding: 0.9vw 12vw;
+  box-sizing: border-box;
+}
+
+.blue2 {
+  padding: 0.8vw 11.5vw;
+  box-sizing: border-box;
+}
+
+.blue3 {
+  padding: 0.8vw 10vw;
+  box-sizing: border-box;
+}
+
+.blue4 {
+  padding: 0.8vw 11vw;
+  box-sizing: border-box;
+}
+
+.blue5 {
+  padding: 0.8vw 10.5vw;
+  box-sizing: border-box;
+}
+
+.blue6 {
+  padding: 0.8vw 10vw;
+  box-sizing: border-box;
+} */
+
+.skill div {
+  font-size: 1.1vw;
+  color: #555;
+  display: inline;
+}
+
+.skill {
+  font-size: 1.1vw;
+  color: #555;
+  margin-top: 1.3vw;
+}
+
+.logo3 {
+  position: absolute;
+  right: 0vw; /* 위치를 vw로 변경 */
+  top: 0vw; /* 위치를 vw로 변경 */
+  object-fit: cover;
+  display: block;
+  width: 5vw; /* 너비를 vw로 변경 */
+  height: 5vw; /* 높이를 vw로 변경 */
+}
+
+/*con4*/
+
+.con4 {
+  position: relative;
+  z-index: -1px;
+  padding: 2vw;
+  box-sizing: border-box;
+  width: 100%;
+  background-image: url(../img/bg4.jpg);
+  display: block;
+  height: 100vh;
+  background-size: cover;
+}
+
+.con4_wrap {
+  display: flex;
+
+  width: 90%;
+  margin: auto;
+}
+
+.mockups img {
+  padding-left: 0vw;
+  margin-top: 15vw;
+  right: 30vw;
+  width: 35vw;
+  object-fit: cover;
+}
+
+.mockupss {
+  position: relative;
+}
+
+.mockupss img:nth-child(1) {
+  margin-right: 2vw;
+  margin-top: 2vw;
+  width: 23vw;
+}
+
+.website h5 {
+  line-height: 30px;
+  font-size: 3vw;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+  margin-top: 3.5vw;
+}
+
+.website h2 {
+  font-size: 5vw;
+  color: #2a49e8;
+  font-family: "Raleway", sans-serif;
+}
+
+.website h4 {
+  font-size: 1.5vw;
+  color: #555;
+  margin-top: 1.2vw;
+  margin-bottom: 1.2vw;
+}
+
+.website p {
+  font-size: 1vw;
+  font-weight: 600;
+  margin-bottom: 1.5vw;
+}
+
+.website div {
+  font-size: 1vw;
+  line-height: 1.6vw;
+  color: #555;
+}
+
+.website span {
+  font-weight: 600;
+  margin-right: 1.3vw;
+}
+
+.mar {
+  padding-right: 0.8vw;
+  box-sizing: border-box;
+}
+
+.con4_img {
+  display: flex;
+  justify-content: left;
+}
+
+.con4_img img {
+  cursor: pointer;
+  margin-top: 1.3vw;
+  margin-right: 1vw;
+  width: 7.7vw;
+  object-fit: cover;
+  margin-bottom: 5vw;
+}
+
+.website h6 {
+  margin-bottom: 0.5vw;
+  letter-spacing: -0.5px;
+  font-size: 1.2vw;
+  color: #2a49e8;
+}
+
+.con4_img2 {
+  display: flex;
+  gap: 1vw;
+}
+
+.con4_img2 img {
+  padding: 0.7vw;
+  background-color: #fff;
+  object-fit: cover;
+  height: 3vw;
+  width: 3vw;
+  border-radius: 50%;
+  border: 3px solid #2a49e8;
+  margin-bottom: 0.5vw;
+}
+
+.website p {
+  font-weight: 500;
+  line-height: 1.3vw;
+  color: #555;
+  width: 20vw;
+  font-size: 0.8vw;
+  text-align: justify;
+}
+
+.mockupss img:nth-child(2) {
+  right: -15%;
+  top: 50%;
+  position: absolute;
+  cursor: pointer;
+  width: 4vw;
+}
+
+.logo_4 {
+  position: absolute;
+  right: -4vw; /* 위치를 vw로 변경 */
+  bottom: 1vw; /* 위치를 vw로 변경 */
+  object-fit: cover;
+  display: block;
+  width: 4vw; /* 너비를 vw로 변경 */
+  height: 4vw; /* 높이를 vw로 변경 */
+}
+
+/*con5*/
+
+.con5 {
+  position: relative;
+  z-index: -1px;
+  padding: 2vw;
+  box-sizing: border-box;
+  width: 100%;
+  background-image: url(../img/bg5.jpg);
+  display: block;
+  height: 100vh;
+  background-size: cover;
+}
+
+.con5_wrap {
+  position: relative;
+  display: flex;
+  width: 90%;
+  margin: auto;
+}
+
+.mockupssss {
+  gap: 5vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.img1 {
+  margin-top: 2vw;
+  width: 33vw;
+}
+
+.mockup_1 {
+  position: relative;
+}
+
+.img2 {
+  position: absolute;
+  top: 24vw;
+  left: 9vw;
+  width: 13vw;
+}
+
+.com {
+  position: absolute;
+  color: #555;
+  writing-mode: vertical-rl; /* 세로 방향으로 글자 표시 */
+  top: 10vw;
+  left: 33vw;
+  text-orientation: mixed;
+  font-size: 0.7vw; /* 글자 크기 */
+}
+
+.pro {
+  position: absolute;
+  top: 31vw;
+  left: 23vw;
+  font-size: 0.7vw;
+}
+
+.used {
+  font-size: 1.3vw;
+  margin-top: 5vw;
+  margin-bottom: 1vw;
+}
+
+.photoshop {
+  align-items: center;
+  display: flex;
+  gap: 1vw;
+}
+
+.photoshop li:nth-child(1) img {
+  width: 2.5vw;
+  height: 2.5vw;
+  object-fit: cover;
+  background-color: #fff;
+  border: 3px solid #2a49e8;
+  padding: 0.6vw;
+  border-radius: 50%;
+}
+
+.photoshop li:nth-child(2) img {
+  width: 2.5vw;
+  height: 2.5vw;
+  object-fit: cover;
+  background-color: #fff;
+  border: 3px solid #2a49e8;
+
+  padding: 0.6vw;
+  border-radius: 50%;
+}
+
+.photoshop li:nth-child(3) img {
+  width: 2.5vw;
+  height: 2.5vw;
+  object-fit: cover;
+  background-color: #fff;
+  border: 3px solid #2a49e8;
+  padding: 0.6vw;
+  border-radius: 50%;
+}
+
+.photoshop li:nth-child(4) img {
+  cursor: pointer;
+  margin-left: 2vw;
+  width: 11.5vw;
+}
+
+.baner {
+  width: 20vw;
+  margin-top: 3vw;
+  margin-bottom: 1vw;
+}
+
+.tshirts {
+  margin-top: 3vw;
+  width: 23vw;
+}
+
+.banner_wrap {
+  position: relative;
+}
+
+.over {
+  font-size: 1.5vw;
+  margin-bottom: 0.5vw;
+}
+
+.banner_wrap p {
+  font-size: 0.8vw;
+  color: #555;
+}
+
+.alin {
+  font-size: 0.8vw;
+  color: #555;
+  top: 5vw;
+  right: -2.5vw;
+  position: absolute;
+  writing-mode: vertical-rl; /* 세로 방향으로 글자 표시 */
+  text-orientation: mixed; /* 글자 방향 설정 (기본값) */
+}
+
+.tshirts_wrap div {
+  font-size: 0.9vw;
+  margin-top: 2vw;
+  margin-left: 5vw;
+  color: #555;
+}
+
+.logo_5 {
+  position: absolute;
+  right: -3vw; /* 위치를 vw로 변경 */
+  bottom: 0vw; /* 위치를 vw로 변경 */
+  object-fit: cover;
+  display: block;
+  width: 4vw; /* 너비를 vw로 변경 */
+  height: 4vw; /* 높이를 vw로 변경 */
+}
+/*con6*/
+
+.con6 {
+  position: relative;
+  z-index: -1px;
+  padding: 2vw;
+  box-sizing: border-box;
+  width: 100%;
+  background-image: url(../img/bg6.jpg);
+  display: block;
+  height: 100vh;
+  background-size: cover;
+}
+
+.txtwrap {
+  position: relative;
+  text-align: center;
+}
+
+.txtwrap1 {
+  top: 1.5vw;
+}
+
+.txtwrap p {
+  font-size: 1vw;
+  padding-bottom: 0.9vw;
+  margin: auto;
+  width: 13vw;
+}
+
+.txtwrap h2 {
+  font-size: 1vw;
+  font-weight: 600;
+  margin-bottom: 1vw;
+  font-family: "Raleway", sans-serif;
+}
+
+.txtwrap p {
+  font-size: 0.9vw;
+}
+
+.txtwrap div {
+  font-size: 1vw;
+  font-weight: 600;
+}
+
+.txtwrap2 {
+  display: flex;
+  gap: 15vw;
+  justify-content: space-around;
+}
+
+.txtwrap2 li:nth-child(1) {
+  text-align: right;
+}
+
+.txtwrap2 li:nth-child(2) {
+  text-align: left;
+}
+
+.txtwrap3 li:nth-child(3) {
+  text-align: left;
+}
+
+.txtwrap3 {
+  display: flex;
+  margin-top: 12vw;
+  justify-content: space-around;
+}
+
+.txtwrap3 li:nth-child(1) {
+  text-align: right;
+}
+
+.click2 {
+  top: 5vw;
+  position: absolute;
+  font-size: 0.8vw;
+  color: #555;
+}
+
+.txtwrap3 li:nth-child(2) {
+  text-align: left;
+}
+
+.circle_2 {
+  box-shadow: 0px 0px 10px #999;
+  position: relative;
+  width: 50vw;
+  height: 50vw;
+  background-color: #fff;
+  border-radius: 50%;
+  left: 25vw;
+  top: 12vw;
+  transform: translate(-50%, -50%);
+}
+
+.circle_2 img {
+  position: absolute;
+}
+
+.insta {
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 1.5vw;
+  background-color: #fff;
+  left: -2vw;
+  top: 14vw;
+  box-shadow: 0px 0px 10px #999;
+  width: 4vw;
+}
+
+.blog {
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 1.5vw;
+  background-color: #fff;
+  left: 6vw;
+  top: 2vw;
+  box-shadow: 0px 0px 10px #999;
+  width: 4vw;
+}
+
+.kakao {
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 1.5vw;
+  background-color: #fff;
+  left: 21vw;
+  top: -3.5vw;
+  box-shadow: 0px 0px 10px #999;
+  width: 4vw;
+}
+
+.email {
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 1.5vw;
+  background-color: #fff;
+  right: 6vw;
+  top: 2vw;
+  box-shadow: 0px 0px 10px #999;
+  width: 4vw;
+}
+
+.call {
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 1.5vw;
+  background-color: #fff;
+  right: -2vw;
+  top: 14vw;
+  box-shadow: 0px 0px 10px #999;
+  width: 4vw;
+}
+
+.rom {
+  width: 11.5vw;
+  left: 25vw;
+  bottom: 9vw;
+  transform: translate(-50%, -50%);
+}
+
+.twing {
+  width: 2.5vw;
+  left: 35%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.twing2 {
+  width: 2.5vw;
+  right: 30%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.rom_explan {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 23%;
+  transform: translate(-50%, -50%);
+}
+
+.rom_explan h5 {
+  font-family: "Raleway", sans-serif;
+  font-size: 2vw;
+  font-weight: 400;
+  margin-bottom: 1.5vw;
+}
+
+.rom_explan h5 span {
+  font-weight: 800;
+}
+
+.rom_explan p {
+  letter-spacing: -1px;
+  font-weight: 500;
+  font-size: 1.5vw;
+  margin: auto;
+  width: 100%;
+}
+
+.logo_6 {
+  position: absolute;
+  right: -21vw; /* 위치를 vw로 변경 */
+  top: -14vw; /* 위치를 vw로 변경 */
+  object-fit: cover;
+  display: block;
+  width: 4vw; /* 너비를 vw로 변경 */
+  height: 4vw; /* 높이를 vw로 변경 */
 }
 
 @media (min-width: 760px) and (max-width: 1200px) {
