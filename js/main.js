@@ -369,6 +369,36 @@ $(window).on("scroll", function () {
       }
     });
   });
+  let prevScroll = 0;
+  $(window).on("scroll", function () {
+    let nowScroll = $(window).scrollTop();
+    if (nowScroll > prevScroll) {
+      $(".website h2").addClass("on");
+    } else {
+      $(".website h2").removeClass("on");
+    }
+    prevScroll = nowScroll;
+  });
+  $(document).ready(function () {
+    const $con4Back = $(".con4_back"); // 배경 이미지
+    const $con4 = $(".con4"); // con4 섹션
+
+    $(window).on("scroll", function () {
+      const con4Top = $con4.offset().top - $(window).scrollTop(); // con4 섹션의 상단 위치 계산
+      const windowHeight = $(window).height();
+
+      // con4 섹션이 화면에 들어올 때 배경 이미지가 서서히 사라짐
+      if (con4Top < windowHeight && con4Top > 0) {
+        // 배경 이미지가 화면에 도달하면 opacity를 서서히 0으로 설정
+        $con4Back.css("opacity", 0); // opacity가 0으로 변하면 서서히 사라짐
+        setTimeout(function () {
+          // opacity가 완전히 0이 되면 display: none으로 변경
+          $con4Back.css("display", "none");
+        }, 3000);
+      }
+    });
+  });
+
   // Splitting 호출
   Splitting();
 });
