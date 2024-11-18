@@ -111,7 +111,7 @@
     left: 50%;
     top: 48%;
     transform: translate(-50%, -50%);
-    animation: slideIn 7s ease-out forwards;
+    animation: slideIn 3s ease-out forwards;
   }
 
   @keyframes slideIn {
@@ -510,13 +510,21 @@
   text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-/* 마우스 hover 시 문자 효과 */
 .con1_wrap h2 a:hover .char::before {
   transform: translateY(0);
 }
 
 .con1_wrap h2 a:hover .char::after {
   transform: translateY(-100%);
+}
+
+/* hover 시 적용되는 스타일 */
+.con1_wrap h2 a.hover-effect .char::before {
+  transform: translateY(0); /* 텍스트가 나타나게 하는 애니메이션 */
+}
+
+.con1_wrap h2 a.hover-effect .char::after {
+  transform: translateY(-100%); /* 텍스트가 사라지게 하는 애니메이션 */
 }
 
 .line_1,
@@ -589,10 +597,41 @@
   height: 10vw; /* 높이를 vw로 변경 */
 }
 
-.con1_txt2 img:nth-child(1):hover {
+.img_1,
+.img_2,
+.img_3,
+.img_4 {
+  transition: transform 0.5s, box-shadow 0.5s; /* 애니메이션을 부드럽게 추가 */
+}
+
+.img_1,
+.img_2,
+.img_3,
+.img_4 {
+  cursor: pointer;
+  transform: scale(1);
+  box-shadow: none;
+}
+
+.img_1:hover,
+.img_2:hover,
+.img_3:hover,
+.img_4:hover {
+  transform: scale(1.1);
   cursor: pointer;
   transform: scale(1.1);
   transition: 0.5s;
+  box-shadow: rgba(169, 169, 169, 0.4) 5px 5px,
+    rgba(169, 169, 169, 0.3) 10px 10px, rgba(169, 169, 169, 0.2) 15px 15px,
+    rgba(169, 169, 169, 0.1) 20px 20px, rgba(169, 169, 169, 0.05) 25px 25px;
+}
+
+.img_1.hover-trigger,
+.img_2.hover-trigger,
+.img_3.hover-trigger,
+.img_4.hover-trigger {
+  cursor: pointer;
+  transform: scale(1.1);
   box-shadow: rgba(169, 169, 169, 0.4) 5px 5px,
     rgba(169, 169, 169, 0.3) 10px 10px, rgba(169, 169, 169, 0.2) 15px 15px,
     rgba(169, 169, 169, 0.1) 20px 20px, rgba(169, 169, 169, 0.05) 25px 25px;
@@ -800,6 +839,21 @@
 .h52 a:hover .char::after,
 .h53 a:hover .char::after,
 .h54 a:hover .char::after {
+  transform: translateY(-100%);
+}
+
+/* 자동으로 호버 효과가 적용되도록 */
+.h51 .char.hover-effect::before,
+.h52 .char.hover-effect::before,
+.h53 .char.hover-effect::before,
+.h54 .char.hover-effect::before {
+  transform: translateY(0);
+}
+
+.h51 .char.hover-effect::after,
+.h52 .char.hover-effect::after,
+.h53 .char.hover-effect::after,
+.h54 .char.hover-effect::after {
   transform: translateY(-100%);
 }
 
@@ -1018,6 +1072,20 @@
   color: #777;
 }
 
+.hand {
+  animation: scale-animation 2s infinite; /* 2초마다 반복 */
+}
+
+@keyframes scale-animation {
+  0%,
+  100% {
+    transform: scale(1); /* 기본 크기 */
+  }
+  50% {
+    transform: scale(1.2); /* 커지는 효과 */
+  }
+}
+
 .logo2 {
   position: absolute;
   right: 0vw; /* 위치를 vw로 변경 */
@@ -1082,18 +1150,25 @@
   transition: 0.5s;
 }
 
-.bold:hover .wave.-three {
-  animation: drift 5000ms infinite linear;
+.bold {
+  border: 1px solid #2a49e8;
+  color: #2a49e8;
+  overflow: hidden;
+  position: relative;
+  transition: 0.5s;
+  transform: translate3d(0, 0, 0);
 }
 
-.bold:hover .wave.-two {
-  animation: drift 7000ms infinite linear;
-  opacity: 0.1;
-  background: yellow;
+.bold.active,
+.bold:hover {
+  color: #fff;
+  border: 1px solid #81e6ff;
+  background-color: #81e6ff;
+  transform: translate3d(0, 0, 0);
 }
 
-.bold:hover .wave {
-  opacity: 0.4;
+.wave {
+  opacity: 0; /* 기본적으로 숨김 */
   position: absolute;
   bottom: 50%;
   left: -30%;
@@ -1102,7 +1177,25 @@
   height: 30vw;
   transform-origin: 50% 48%;
   border-radius: 43%;
+  transition: opacity 0.5s ease-in-out; /* opacity 전환 */
+}
+
+.bold.active .wave,
+.bold:hover .wave {
+  opacity: 0.4; /* 애니메이션 시 opacity 0.4로 설정 */
   animation: drift 3000ms infinite linear;
+}
+
+.bold.active .wave.-two,
+.bold:hover .wave.-two {
+  opacity: 0.1;
+  background: yellow;
+  animation: drift 7000ms infinite linear;
+}
+
+.bold.active .wave.-three,
+.bold:hover .wave.-three {
+  animation: drift 5000ms infinite linear;
 }
 
 @keyframes drift {
@@ -1112,21 +1205,6 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.bold:hover {
-  color: #fff;
-  border: 1px solid #81e6ff;
-  background-color: #81e6ff;
-  transition: 0.5s;
-  transform: translate3d(0, 0, 0);
-}
-
-.bold {
-  border: 1px solid #2a49e8;
-  color: #2a49e8;
-  overflow: hidden;
-  position: relative;
 }
 
 .modal {
@@ -1547,10 +1625,12 @@
   background-position: center;
   z-index: 9999; /* 배경 이미지가 다른 콘텐츠 위에 위치하도록 z-index 설정 */
   opacity: 1; /* 처음에는 완전히 불투명 */
-  transition: opacity 3s ease; /* opacity가 서서히 변하도록 설정 */
+  transition: opacity 1s ease; /* opacity가 서서히 변하도록 설정 */
 }
 
 .con4_wrap {
+  padding-left: 7vw;
+
   display: flex;
   width: 90%;
   margin: auto;
@@ -1579,7 +1659,7 @@
   font-size: 3vw;
   font-weight: 500;
   font-family: "Raleway", sans-serif;
-  margin-top: 3.5vw;
+  margin-top: 5vw;
 }
 
 .website h2 {
@@ -1617,12 +1697,21 @@
   opacity: 1;
 }
 
-/* 마우스를 위치시키면*/
+/* 마우스를 위치시키면 */
 .website h2 a:hover .char::before {
   transform: translateY(0);
 }
 
 .website h2 a:hover .char::after {
+  transform: translateY(-100%);
+}
+
+/* 자동 hover 상태가 추가되었을 때 */
+.website h2.auto-hover a .char::before {
+  transform: translateY(0);
+}
+
+.website h2.auto-hover a .char::after {
   transform: translateY(-100%);
 }
 
@@ -1705,12 +1794,67 @@
   text-align: justify;
 }
 
-.mockupss img:nth-child(2) {
-  right: -15%;
+.swiper-button-next {
+  z-index: 999;
   top: 50%;
   position: absolute;
   cursor: pointer;
   width: 4vw;
+  height: 4vw;
+}
+
+.swiper-button-prev {
+  z-index: 999;
+  left: 100%;
+  top: 50%;
+  position: absolute;
+  cursor: pointer;
+  width: 4vw;
+  height: 4vw;
+}
+
+.navi {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10; /* swiper 버튼과 겹치지 않도록 설정 */
+}
+
+.navi li {
+  width: 50px;
+  height: 5px;
+  background-color: #f0f0f0; /* 기본 배경색 */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* 색상 변경 시 부드럽게 변화 */
+}
+
+.navi li.on {
+  background-color: red; /* 활성화된 아이템 색상 */
+}
+
+:root {
+  --swiper-navigation-color: red; /* 원하는 색상으로 설정 */
+}
+
+.swiper-button-next {
+  right: 1vw;
+}
+
+.swiper-button-prev {
+  left: 1vw;
+}
+
+.swiper-button-prev {
+  z-index: 999;
+  left: -67vw;
+  top: 50%;
+  position: absolute;
+  cursor: pointer;
+  width: 4vw;
+  height: 4vw;
 }
 
 .logo_4 {

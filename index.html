@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KWONPORTFOLIO</title>
+
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/splitting.min.js"></script>
     <script src="js/main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/main.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+KR:wght@100..900&display=swap"
       rel="stylesheet"
@@ -449,10 +455,10 @@
         </section>
       </section>
       <section id="con4">
-        <section class="con4">
-          <div class="con4_wrap2">
+        <section class="con4 swiper">
+          <div class="con4_wrap2 swiper">
             <div class="con4_back"></div>
-            <ul class="con4_wrap">
+            <ul class="con4_wrap swiper-slide">
               <li class="website">
                 <h5>WEBSITE</h5>
                 <h2><a href="#" data-splitting>SOCIALIZE</a></h2>
@@ -482,10 +488,10 @@
               </li>
               <li class="mockupss">
                 <img src="img/mockup2.png" />
-                <img class="check" src="img/check.png" />
               </li>
             </ul>
-            <ul class="con4_wrap2">
+            <ul class="con4_wrap2 swiper-slide">
+              <div class="con4_back"></div>
               <li class="website">
                 <h5>WEBSITE</h5>
                 <h2><a href="#" data-splitting>SOCIALIZE</a></h2>
@@ -515,10 +521,10 @@
               </li>
               <li class="mockupss">
                 <img src="img/mockup2.png" />
-                <img class="check" src="img/check.png" />
               </li>
             </ul>
-            <ul class="con4_wrap3">
+            <ul class="con4_wrap3 swiper-slide">
+              <div class="con4_back"></div>
               <li class="website">
                 <h5>WEBSITE</h5>
                 <h2><a href="#" data-splitting>SOCIALIZE</a></h2>
@@ -548,10 +554,10 @@
               </li>
               <li class="mockupss">
                 <img src="img/mockup2.png" />
-                <img class="check" src="img/check.png" />
               </li>
             </ul>
-            <ul class="con4_wrap4">
+            <ul class="con4_wrap4 swiper-slide">
+              <div class="con4_back"></div>
               <li class="website">
                 <h5>WEBSITE</h5>
                 <h2><a href="#" data-splitting>SOCIALIZE</a></h2>
@@ -581,10 +587,17 @@
               </li>
               <li class="mockupss">
                 <img src="img/mockup2.png" />
-                <img class="check" src="img/check.png" />
               </li>
             </ul>
           </div>
+          <img class="swiper-button-next" src="img/check.png" />
+          <img class="swiper-button-prev" src="img/check2.png" />
+          <ul class="navi">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
         </section>
       </section>
       <section id="con5">
@@ -696,5 +709,43 @@
         </section>
       </section>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Swiper 초기화
+        var swiper = new Swiper(".swiper", {
+          slidesPerView: 1, // 한 번에 보이는 슬라이드 수
+          spaceBetween: 10, // 슬라이드 간 간격
+          loop: true, // 무한 루프
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          slidesPerGroup: 1, // 한 번에 3개의 슬라이드씩 이동
+          autoplay: {
+            delay: 2000, // 자동 슬라이드 시간 간격
+            disableOnInteraction: false,
+          },
+        });
+
+        // navi li를 클릭하면 해당 슬라이드로 이동하고 색상 변경
+        $(".navi li").on("click", function () {
+          var index = $(this).index() * 1; // 슬라이드 인덱스 계산
+          swiper.slideToLoop(index); // 해당 인덱스로 슬라이드 이동
+
+          // 모든 li 요소에서 'on' 클래스 제거 후, 클릭한 요소에 추가
+          $(".navi li").removeClass("on");
+          $(this).addClass("on");
+        });
+
+        // Swiper 슬라이드가 변경될 때마다 navi 색상 업데이트
+        swiper.on("slideChange", function () {
+          var index = Math.floor(swiper.realIndex / 1); // 현재 슬라이드 그룹 인덱스 계산
+          $(".navi li").removeClass("on");
+          $(".navi li").eq(index).addClass("on");
+        });
+      });
+    </script>
   </body>
 </html>

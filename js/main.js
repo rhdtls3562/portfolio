@@ -8,7 +8,7 @@ $(function () {
   $(".wrap, .menu").hide();
   $(".kwon_text")
     .hide()
-    .fadeIn(5500, function () {
+    .fadeIn(3000, function () {
       setTimeout(function () {
         $(".kwon_text, .kwon").fadeOut(1000, function () {
           $(".wrap, .menu").fadeIn(1000, function () {
@@ -143,31 +143,66 @@ $(function () {
     });
   });
 
-  // 이미지 클릭 시 확인 창 띄우기
-  $(".txt2_2 li img").on("click", function (event) {
-    var confirmation = confirm("해당 페이지로 이동하시겠습니까?");
+  $(document).ready(function () {
+    // 첫 번째 기능: 자동으로 hover 효과를 트리거
+    setInterval(function () {
+      $(".con1_wrap h2 a").each(function () {
+        var $this = $(this);
 
-    if (confirmation) {
-      // 각 이미지에 따른 이동할 컨텐츠 지정
-      var targetCon;
-      if ($(this).parent().hasClass("img_1")) {
-        targetCon = $("#con2");
-      } else if ($(this).parent().hasClass("img_2")) {
-        targetCon = $("#con3");
-      } else if ($(this).parent().hasClass("img_3")) {
-        targetCon = $("#con4");
-      } else if ($(this).parent().hasClass("img_4")) {
-        targetCon = $("#con5");
-      }
+        // 자동으로 hover 효과를 트리거하기 위해 클래스 추가
+        $this.addClass("hover-effect");
 
-      // 해당 섹션으로 부드럽게 스크롤 이동
-      if (targetCon) {
-        $("html, body")
-          .stop()
-          .animate({ scrollTop: targetCon.offset().top }, 800);
-      }
+        // 1초 후에 hover 효과를 제거
+        setTimeout(function () {
+          $this.removeClass("hover-effect");
+        }, 1000); // 1초 후 hover 효과 제거
+      });
+    }, 5000); // 2.5초마다 반복
+
+    // 두 번째 기능: 이미지 hover 효과 트리거
+    var images = $(".img_1, .img_2, .img_3, .img_4"); // 이미지를 선택
+    var index = 0;
+
+    function triggerHoverEffect() {
+      // 현재 이미지를 선택하여 hover 효과를 강제로 트리거
+      $(images[index]).addClass("hover-trigger");
+
+      // 다른 이미지들은 hover 효과를 제거
+      $(images).not(images[index]).removeClass("hover-trigger");
+
+      // 다음 이미지로 넘어가기
+      index = (index + 1) % images.length;
     }
+
+    setInterval(triggerHoverEffect, 2000); // 2초마다 효과 반복
+
+    // 이미지 클릭 시 확인 창 띄우기
+    $(".txt2_2 li img").on("click", function (event) {
+      var confirmation = confirm("해당 페이지로 이동하시겠습니까?");
+
+      if (confirmation) {
+        // 각 이미지에 따른 이동할 컨텐츠 지정
+        var targetCon;
+        if ($(this).parent().hasClass("img_1")) {
+          targetCon = $("#con2");
+        } else if ($(this).parent().hasClass("img_2")) {
+          targetCon = $("#con3");
+        } else if ($(this).parent().hasClass("img_3")) {
+          targetCon = $("#con4");
+        } else if ($(this).parent().hasClass("img_4")) {
+          targetCon = $("#con5");
+        }
+
+        // 해당 섹션으로 부드럽게 스크롤 이동
+        if (targetCon) {
+          $("html, body")
+            .stop()
+            .animate({ scrollTop: targetCon.offset().top }, 800);
+        }
+      }
+    });
   });
+
   $(document).ready(function () {
     $(window).on("scroll", function () {
       const scrollTop = $(window).scrollTop();
@@ -369,6 +404,31 @@ $(window).on("scroll", function () {
       }
     });
   });
+  const h2Element = document.querySelector(".website h2");
+  const chars = document.querySelectorAll(".website h2 a .char");
+
+  // IntersectionObserver - 화면에 h2가 보일 때 자동으로 hover 효과 트리거
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // 자동으로 hover 상태 추가
+          h2Element.classList.add("auto-hover");
+
+          // 애니메이션이 끝난 후 hover 상태 제거
+          setTimeout(() => {
+            h2Element.classList.remove("auto-hover");
+          }, 2000); // 애니메이션이 끝난 후 원상복구
+
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  observer.observe(h2Element);
+  // 스크롤 방향에 따라 클래스를 추가하거나 제거
   let prevScroll = 0;
   $(window).on("scroll", function () {
     let nowScroll = $(window).scrollTop();
@@ -394,9 +454,75 @@ $(window).on("scroll", function () {
         setTimeout(function () {
           // opacity가 완전히 0이 되면 display: none으로 변경
           $con4Back.css("display", "none");
-        }, 3000);
+        }, 1000);
       }
     });
+  });
+  $(document).ready(function () {
+    // 첫 번째 기능: 자동으로 hover 효과를 트리거
+    setInterval(function () {
+      $(".h51 a").each(function () {
+        var $this = $(this);
+
+        // 자동으로 hover 효과를 트리거하기 위해 클래스 추가
+        $this.addClass("hover-effect");
+
+        // 1초 후에 hover 효과를 제거
+        setTimeout(function () {
+          $this.removeClass("hover-effect");
+        }, 1000); // 1초 후 hover 효과 제거
+      });
+    }, 3000); // 3초마다 반복
+  });
+  $(document).ready(function () {
+    // 스크롤 이벤트 감지
+    $(window).on("scroll", function () {
+      // 화면에 나타난 요소를 찾기
+      $(".h51 a, .h52 a, .h53 a, .h54 a").each(function () {
+        var $this = $(this);
+
+        // 요소가 화면에 보이는지 확인
+        var elementTop = $this.offset().top;
+        var elementBottom = elementTop + $this.outerHeight();
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+
+        if (elementBottom > viewportTop && elementTop < viewportBottom) {
+          // 화면에 보이면 hover 효과 클래스 추가
+          $this.find(".char").addClass("hover-effect");
+
+          // 1초 후 클래스 제거
+          setTimeout(function () {
+            $this.find(".char").removeClass("hover-effect");
+          }, 1000); // hover 효과 유지 시간
+        }
+      });
+    });
+  });
+  const boldElements = document.querySelectorAll(".bold");
+
+  const observers = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          console.log("Active class added to", entry.target);
+
+          // 애니메이션이 끝난 후 active 클래스를 제거
+          setTimeout(() => {
+            entry.target.classList.remove("active");
+            console.log("Active class removed from", entry.target);
+          }, 2000); // 애니메이션 시간(3000ms) 후 제거
+
+          observers.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  boldElements.forEach((el) => {
+    observers.observe(el);
   });
 
   // Splitting 호출
