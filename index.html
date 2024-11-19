@@ -9,7 +9,6 @@
     <script src="js/main.js"></script>
     <script src="js/splitting.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/Flip.min.js"></script>
@@ -59,7 +58,7 @@
         <li><a href="#con3">HISTORY</a></li>
         <li><a href="#con4">PROJECT</a></li>
         <li><a href="#con5">DESIGN</a></li>
-        <li><a href="#con6">CONTECT</a></li>
+        <li><a href="#con5">CONTACT</a></li>
       </ul>
     </div>
     <section id="visual">
@@ -98,12 +97,7 @@
           </li>
         </ul>
         <ul class="visual_bottom">
-          <li>
-            <h3>CONTACT</h3>
-            <div>rhdtls3562@naver.com</div>
-            <div>0504-0818-9534</div>
-            <div>Blog : blog.naver.com/rhdtls3562</div>
-          </li>
+          <li></li>
           <li>
             <img class="visual_logo" src="img/권새롬-뉴-로고_white.png" />
           </li>
@@ -605,10 +599,43 @@
       <section id="con5">
         <section class="con5">
           <div class="pront"></div>
+          <img class="rom_dro" src="img/rom_pretty.png" />
+          <ul class="con4_wrap">
+            <li class="website">
+              <h5>WEBSITE</h5>
+              <h2><a href="#" data-splitting>SOCIALIZE</a></h2>
+              <h4>의류 편집샵 홈페이지 디자인</h4>
+              <div><span>작업일</span> 2024.09-2024.10</div>
+              <div><span>기여도</span> 70%</div>
+              <div><span class="mar">URL</span> rhdtls3562.dothome.co.kr</div>
+              <ul class="con4_img">
+                <li><img src="img/seemore.png" alt="See More" /></li>
+                <li><img src="img/plan.png" alt="Plan" /></li>
+              </ul>
+              <h6>Used Tool</h6>
+              <ul class="con4_img2">
+                <li><img src="img/html.png" alt="HTML" /></li>
+                <li><img src="img/css.png" alt="CSS" /></li>
+                <li><img src="img/제이쿼리.png" alt="jQuery" /></li>
+              </ul>
+              <h6>Overview</h6>
+              <p>
+                "SOCIALIZE" 라는 단어를 인용하여 각각 다른 팀원들이 어울려
+                새롭고 획기적인 홈페이지를 만들자는 취지로 사이트 제작을
+                시작하였습니다.
+              </p>
+            </li>
+            <li class="mockups">
+              <img src="img/mockup1.png" alt="Mockup 1" />
+            </li>
+            <li class="mockupss">
+              <img src="img/mockup2.png" alt="Mockup 2" />
+            </li>
+          </ul>
           <section class="slider-section">
             <div class="wheel">
               <div class="wheel__card">
-                <img class="images" src="img/27.jpg" />
+                <img class="images" src="img/19.jpg" />
               </div>
               <div class="wheel__card">
                 <img class="images" src="img/1.jpg" />
@@ -668,10 +695,10 @@
                 <img class="images" src="img/17.jpg" />
               </div>
               <div class="wheel__card">
-                <img class="images" src="img/18.jpg" />
+                <img class="images" src="img/25.jpg" />
               </div>
               <div class="wheel__card">
-                <img class="images" src="img/19.jpg" />
+                <img class="images" src="img/27.jpg" />
               </div>
               <div class="wheel__card">
                 <img class="images" src="img/2 (1).jpg" />
@@ -689,7 +716,7 @@
                 <img class="images" src="img/24.jpg" />
               </div>
               <div class="wheel__card">
-                <img class="images" src="img/25.jpg" />
+                <img class="images" src="img/18.jpg" />
               </div>
             </div>
           </section>
@@ -704,8 +731,6 @@
 
     <!-- Initialize Swiper -->
     <script>
-      gsap.registerPlugin("ScrollTrigger");
-
       let wheel = document.querySelector(".wheel");
       let images = gsap.utils.toArray(".wheel__card");
 
@@ -737,46 +762,92 @@
 
       window.addEventListener("resize", setup);
 
-      // 애니메이션 설정: 스크롤과 함께 회전
-      gsap.to(".wheel", {
-        rotate: () => -360, // 계속 회전하도록 설정
-        ease: "none", // 가속도 없이 일정하게 회전
-        duration: images.length, // 이미지의 개수만큼 회전
-        scrollTrigger: {
-          start: 0,
-          end: "max", // 끝까지 스크롤에 반응
-          scrub: 1, // 부드러운 스크롤 애니메이션
-          invalidateOnRefresh: true, // 페이지 새로고침 시 스크롤 트리거 유효성 재검사
-        },
+      // 자동 회전 애니메이션 참조 저장
+      const rotationAnimation = gsap.to(".wheel", {
+        rotate: "+=360", // 한 바퀴 회전
+        duration: 30, // 20초 동안 한 바퀴
+        ease: "linear", // 일정한 속도로 회전
+        repeat: -1, // 무한 반복
       });
+
       let cards = gsap.utils.toArray(".wheel__card");
       let pront = document.querySelector(".pront");
       let isFullScreen = false;
 
-      // 이미지 클릭 이벤트 추가
+      // 손가락 가져다 대면 애니메이션 멈춤
       cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          rotationAnimation.pause(); // 멈춤
+        });
+
+        card.addEventListener("mouseleave", () => {
+          if (!isFullScreen) {
+            rotationAnimation.resume(); // 다시 시작
+          }
+        });
+
+        // 클릭 시 큰 이미지 표시
         card.addEventListener("click", () => {
-          // 클릭 시 이미지 가져오기
           let img = card.querySelector(".images");
           if (img) {
             if (!isFullScreen) {
-              // header에 이미지 추가 (슬며시 나타나도록 처리)
-              $(pront).fadeOut(500, function () {
-                // fadeOut 후 이미지 변경
-                pront.innerHTML = `<img src="${img.src}" alt="${img.alt}" class="fullscreen-image">`;
-                $(pront).fadeIn(500); // fadeIn으로 이미지가 나타나도록
-              });
+              rotationAnimation.pause(); // 멈춤
+
+              // 큰 이미지와 닫기 버튼 표시
+              $(pront)
+                .hide()
+                .html(
+                  `
+          <div>
+            <button id="close-btn" style="
+              position: fixed;
+              top: -3%;
+              right: -28%;
+              background: #2a49e8;
+              color: white;
+              border: none;
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+              font-size: 16px;
+              cursor: pointer;
+              z-index: 10000;
+            ">X</button>
+            <img src="${img.src}" alt="${img.alt}" style="
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              max-width: 150%;
+              max-height: 100%;
+              z-index: 9999;
+              cursor: pointer;
+            ">
+          </div>`
+                )
+                .fadeIn(500); // fadeIn으로 부드럽게 나타남
               isFullScreen = true;
-            } else {
-              // 이미 있는 경우 슬며시 사라지게 하기
-              $(pront).fadeOut(500, function () {
-                pront.innerHTML = ""; // 내용을 비움
-              });
-              isFullScreen = false;
+
+              // 닫기 버튼 또는 큰 이미지 클릭 시 닫기
+              document
+                .querySelector("#close-btn")
+                .addEventListener("click", closeFullscreen);
+              document
+                .querySelector("img")
+                .addEventListener("click", closeFullscreen);
             }
           }
         });
       });
+
+      // 닫기 함수
+      function closeFullscreen() {
+        $(pront).fadeOut(500, function () {
+          pront.innerHTML = ""; // 내용을 비움
+        });
+        isFullScreen = false;
+        rotationAnimation.resume(); // 애니메이션 재개
+      }
 
       // keep track of last clicked card so we can put it back
       let lastClickedCard;

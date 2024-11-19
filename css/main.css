@@ -8,7 +8,7 @@
   }
 
   #header {
-    z-index: 1000;
+    z-index: 1100;
   }
 
   .con1,
@@ -24,7 +24,7 @@
     font-weight: 600;
     font-family: "Raleway", sans-serif;
     position: fixed;
-    z-index: 999;
+    z-index: 1100;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -41,7 +41,7 @@
   }
 
   .menu li:hover {
-    background-color: #000000;
+    background-color: #0af;
   }
 
   .menu li:hover a {
@@ -94,6 +94,10 @@
     justify-content: space-between;
   }
 
+  .top1 li {
+    color: #222;
+  }
+
   .top2 {
     font-family: "Raleway", sans-serif;
     margin-top: 10px;
@@ -109,6 +113,7 @@
 
   .top2 h2,
   .top3 h2 {
+    color: #0af;
     white-space: nowrap;
     box-sizing: border-box;
     font-size: 6vw;
@@ -117,7 +122,7 @@
 
   .top2 h2:hover,
   .top3 h2:hover {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #2a49e8, 0 0 20px #2a49e8;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ffffff, 0 0 20px #ffffff;
   }
 
   .kwon_text {
@@ -236,7 +241,7 @@
 
   .cir1 {
     margin-left: 0vw; /* 오른쪽 간격을 vw로 설정 */
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     padding: 4vw;
 
     border-radius: 50%;
@@ -245,14 +250,14 @@
   .cir2 {
     margin-left: -2vw; /* 왼쪽 간격을 vw로 설정 */
     margin-right: -2vw; /* 오른쪽 간격을 vw로 설정 */
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     padding: 4vw;
     border-radius: 50%;
   }
 
   .cir3 {
     margin-left: 30vw; /* 고정된 픽셀 대신 뷰포트 너비에 맞춘 상대적 간격 */
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     padding: 4vw;
     border-radius: 50%;
     flex-shrink: 0; /* 줄어들지 않도록 설정하여 고정된 위치 유지 */
@@ -262,15 +267,13 @@
   .top3 {
     font-family: "Raleway", sans-serif;
     box-sizing: border-box;
-    border-bottom: 1px solid #fff;
+    border-bottom: 2px solid #fff;
     position: relative;
     width: 100%;
     align-items: center;
     justify-content: left;
     display: flex;
   }
-
-  /*container*/
 
   .container_wrap {
     display: flex;
@@ -294,7 +297,7 @@
     color: transparent;
     text-transform: uppercase;
     color: transparent; /* 텍스트의 기본 색상 */
-    -webkit-text-stroke: 2px #fff; /* 흰색 외곽선 추가 */
+    -webkit-text-stroke: 3px #fff; /* 흰색 외곽선 추가 */
     font-weight: 800;
     font-size: 5.9vw;
     align-items: center;
@@ -311,7 +314,7 @@
 
   .cir4 {
     margin-left: 0vw; /* 왼쪽 간격을 vw로 설정 */
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     padding: 4vw;
     border-radius: 50%;
   }
@@ -319,7 +322,7 @@
   .cir5 {
     margin-left: -2vw; /* 왼쪽 간격을 vw로 설정 */
     margin-right: 2vw; /* 오른쪽 간격을 vw로 설정 */
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     padding: 4vw;
     border-radius: 50%;
   }
@@ -337,8 +340,13 @@
   .visual_bottom li div {
     display: block; /* 각 줄을 블록으로 처리 */
     transform: translateX(-100%); /* 왼쪽 화면 밖으로 이동 */
+    color: #ffffff;
     opacity: 0; /* 처음에 보이지 않음 */
     transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  }
+
+  .visual_bottom li h3 {
+    color: #0af;
   }
 
   /* nth-child로 각 줄에 시간차를 추가 */
@@ -478,6 +486,7 @@
     position: relative;
     width: 100%;
     background-image: url(../img/bg1.jpg);
+
     display: block;
     height: 100vh; /* 전체 화면 높이로 설정 */
     background-size: cover;
@@ -643,24 +652,23 @@
   cursor: pointer;
   transform: scale(1.1);
   transition: 0.5s;
-  box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px,
-    rgb(31, 193, 27) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px,
-    rgb(255, 217, 19) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px,
-    rgb(255, 156, 85) 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px,
-    rgb(255, 85, 85) 40px -40px;
+  box-shadow: #0af 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px,
+    rgb(91, 200, 255) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px,
+    rgb(188, 233, 255) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px,
+    rgb(225, 245, 255) 30px -30px;
 }
 
 .img_1.hover-trigger,
 .img_2.hover-trigger,
 .img_3.hover-trigger,
 .img_4.hover-trigger {
+  border: 3px solid #00aaff;
   cursor: pointer;
   transform: scale(1.1);
-  box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px,
-    rgb(31, 193, 27) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px,
-    rgb(255, 217, 19) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px,
-    rgb(255, 156, 85) 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px,
-    rgb(255, 85, 85) 40px -40px;
+  box-shadow: #0af 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px,
+    rgb(91, 200, 255) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px,
+    rgb(188, 233, 255) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px,
+    rgb(225, 245, 255) 30px -30px;
 }
 
 .twningcle {
@@ -727,7 +735,7 @@
   gap: 3vw; /* 간격을 vw로 변경 */
   box-sizing: border-box;
   width: 100%;
-  background-image: url(../img/bg6.jpg);
+  background-image: url(../img/bg2.jpg);
   display: block;
   height: 100vh; /* 전체 화면 높이로 설정 */
   background-size: cover;
@@ -1131,7 +1139,7 @@
   padding: 2vw;
   box-sizing: border-box;
   width: 100%;
-  background-image: url(../img/bg5.jpg);
+  background-image: url(../img/bg3.jpg);
   display: block;
   height: 100vh;
   background-size: cover;
@@ -1833,14 +1841,20 @@
 
 #con5 {
   position: relative;
+  height: 200vh;
+  width: 100%;
 }
 
 .con5 {
+  position: relative;
   padding: 0;
   margin: 0;
   height: 200vh;
   width: 100%;
-  background-image: url(../img/bg6.jpg);
+  background-image: url(../img/bg5.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .slider-section {
@@ -1878,9 +1892,18 @@ h1 {
   max-width: 200px;
   aspect-ratio: 1 / 1;
   cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out; /* 애니메이션 효과 */
+}
+
+.wheel__card:hover .images {
+  transition: 0.3s;
+  transform: scale(1.2); /* 커지는 효과 */
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .images {
+  border: 3px solid #fff;
   cursor: pointer;
   position: relative;
   width: 7vw;
@@ -1893,6 +1916,7 @@ h1 {
 }
 
 .pront {
+  z-index: 999;
   position: fixed;
   left: 50%;
   top: 35%;
@@ -1906,9 +1930,17 @@ h1 {
 }
 
 .pront img {
-  width: 100%;
+  width: 200%;
   height: 100%;
   object-fit: cover;
+}
+
+.rom_dro {
+  left: 50%;
+  bottom: 0%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 30%;
 }
 
 /* SCROLL DOWN */
