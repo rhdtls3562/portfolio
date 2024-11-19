@@ -2,8 +2,21 @@
 
 @media (min-width: 1200px) {
   body {
+    scroll-behavior: smooth !important;
     overflow: hidden;
     font-family: "Noto Sans KR", sans-serif;
+  }
+
+  #header {
+    z-index: 1000;
+  }
+
+  .con1,
+  .con2,
+  .con3,
+  .con4,
+  #visual {
+    z-index: 999;
   }
 
   /* header */
@@ -108,6 +121,7 @@
   }
 
   .kwon_text {
+    z-index: 1000;
     width: 100%;
     position: absolute;
     left: 50%;
@@ -126,6 +140,7 @@
   }
 
   .kwon {
+    z-index: 1000;
     width: 50%;
     position: absolute;
     left: 50%;
@@ -446,7 +461,6 @@
 
   #container {
     width: 100%;
-    pointer-events: none; /* #con5 요소는 클릭되지 않도록 설정 */
     overflow: hidden; /* 내용이 넘칠 경우 숨김 */
   }
 
@@ -713,7 +727,7 @@
   gap: 3vw; /* 간격을 vw로 변경 */
   box-sizing: border-box;
   width: 100%;
-  background-image: url(../img/bg2.jpg);
+  background-image: url(../img/bg6.jpg);
   display: block;
   height: 100vh; /* 전체 화면 높이로 설정 */
   background-size: cover;
@@ -1117,7 +1131,7 @@
   padding: 2vw;
   box-sizing: border-box;
   width: 100%;
-  background-image: url(../img/bg3.jpg);
+  background-image: url(../img/bg5.jpg);
   display: block;
   height: 100vh;
   background-size: cover;
@@ -1817,12 +1831,8 @@
   height: 4vw; /* 높이를 vw로 변경 */
 }
 
-/*con5*/
-
 #con5 {
-  pointer-events: none; /* 클릭되지 않도록 설정 */
   position: relative;
-  z-index: -2; /* 다른 요소들이 위로 오도록 설정 */
 }
 
 .con5 {
@@ -1860,7 +1870,7 @@ h1 {
 
 .wheel__card {
   pointer-events: auto; /* 클릭 가능하도록 설정 */
-  z-index: 10; /* 이미지가 위에 오게 설정 */
+  z-index: 999; /* 이미지가 위에 오게 설정 */
   position: absolute;
   top: 0;
   left: 0;
@@ -1871,7 +1881,7 @@ h1 {
 }
 
 .images {
-  pointer-events: auto; /* 이미지를 클릭 가능하게 설정 */
+  cursor: pointer;
   position: relative;
   width: 7vw;
   height: 7vw;
@@ -1880,15 +1890,15 @@ h1 {
   object-fit: cover;
   pointer-events: none;
   z-index: 999;
-  cursor: pointer;
 }
 
 .pront {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60vh;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  width: 50vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;

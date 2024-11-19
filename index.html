@@ -63,7 +63,7 @@
       </ul>
     </div>
     <section id="visual">
-      <video src="img/back2.mp4" autoplay muted loop playsinline></video>
+      <video src="img/back3.mp4" autoplay muted loop playsinline></video>
       <div class="wrap">
         <ul class="top1">
           <li>매 순간 새로움을 추구하는 웹 퍼블리셔 권(새로움)새롬 입니다.</li>
@@ -146,7 +146,7 @@
                       정리되어있습니다.
                     </p>
                   </li>
-                  <li class="img_2"><img src="img/1.jpg" /></li>
+                  <li class="img_2"><img src="img/picture.JPG" /></li>
                 </ul>
               </li>
               <li>
@@ -704,8 +704,6 @@
 
     <!-- Initialize Swiper -->
     <script>
-      console.clear();
-
       gsap.registerPlugin("ScrollTrigger");
 
       let wheel = document.querySelector(".wheel");
@@ -739,25 +737,103 @@
 
       window.addEventListener("resize", setup);
 
+      // 애니메이션 설정: 스크롤과 함께 회전
       gsap.to(".wheel", {
-        rotate: () => -360,
-        ease: "none",
-        duration: images.length,
+        rotate: () => -360, // 계속 회전하도록 설정
+        ease: "none", // 가속도 없이 일정하게 회전
+        duration: images.length, // 이미지의 개수만큼 회전
         scrollTrigger: {
           start: 0,
-          end: "max",
-          scrub: 1,
-          snap: 1 / images.length,
-          invalidateOnRefresh: true,
+          end: "max", // 끝까지 스크롤에 반응
+          scrub: 1, // 부드러운 스크롤 애니메이션
+          invalidateOnRefresh: true, // 페이지 새로고침 시 스크롤 트리거 유효성 재검사
         },
       });
+      let cards = gsap.utils.toArray(".wheel__card");
+      let pront = document.querySelector(".pront");
+      let isFullScreen = false;
 
+      // 이미지 클릭 이벤트 추가
+      cards.forEach((card) => {
+        card.addEventListener("click", () => {
+          // 클릭 시 이미지 가져오기
+          let img = card.querySelector(".images");
+          if (img) {
+            if (!isFullScreen) {
+              // header에 이미지 추가 (슬며시 나타나도록 처리)
+              $(pront).fadeOut(500, function () {
+                // fadeOut 후 이미지 변경
+                pront.innerHTML = `<img src="${img.src}" alt="${img.alt}" class="fullscreen-image">`;
+                $(pront).fadeIn(500); // fadeIn으로 이미지가 나타나도록
+              });
+              isFullScreen = true;
+            } else {
+              // 이미 있는 경우 슬며시 사라지게 하기
+              $(pront).fadeOut(500, function () {
+                pront.innerHTML = ""; // 내용을 비움
+              });
+              isFullScreen = false;
+            }
+          }
+        });
+      });
+
+      // keep track of last clicked card so we can put it back
+      let lastClickedCard;
+
+      cards.forEach((card) => {
+        card.addEventListener("click", (e) => {
+          if (lastClickedCard) {
+            putBack(e);
+          }
+          flip(e);
+        });
+      });
+
+      pront.addEventListener("click", (e) => {
+        if (!lastClickedCard) return;
+        putBack(e);
+      });
+
+      function putBack(e) {
+        let image = header.querySelector("img");
+
+        let state = Flip.getState(image);
+
+        lastClickedCard.appendChild(image);
+
+        Flip.from(state, {
+          duration: 0.6,
+          ease: "sine.out",
+          absolute: true,
+        });
+
+        lastClickedCard = null;
+      }
+
+      function flip(e) {
+        let image = e.target.querySelector("img");
+
+        let state = Flip.getState(image);
+
+        pront.appendChild(image);
+
+        Flip.from(state, {
+          duration: 0.6,
+          ease: "sine.out",
+          absolute: true,
+        });
+
+        lastClickedCard = e.target;
+      }
+
+      // Swiper 설정 (슬라이드 효과)
       var swiper = new Swiper(".mySwiper", {
         spaceBetween: 30,
         centeredSlides: true,
         autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
+          delay: 2500, // 슬라이드 사이의 간격
+          disableOnInteraction: false, // 사용자가 상호작용한 후에도 자동으로 슬라이드 유지
         },
         pagination: {
           el: ".swiper-pagination",
