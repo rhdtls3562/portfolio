@@ -454,7 +454,7 @@ $(window).on("scroll", function () {
         setTimeout(function () {
           // opacity가 완전히 0이 되면 display: none으로 변경
           $con4Back.css("display", "none");
-        }, 1000);
+        }, 3000);
       }
     });
   });
