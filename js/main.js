@@ -547,7 +547,62 @@ $(window).on("scroll", function () {
   if (con6) {
     observerCon6.observe(con6);
   }
+  // 페이지 진입 시 효과 실행
+  function initparticles() {
+    bubbles();
+  }
 
-  // Splitting 호출
+  // 버블 효과 생성
+  function bubbles() {
+    $.each($(".particletext.bubbles"), function () {
+      // 고정된 버블 개수 설정
+      var bubblecount = 30; // 생성할 버블의 개수를 30개로 고정
+
+      // 기존에 생성된 버블이 있을 경우 중복 생성되지 않도록 방지
+      if ($(this).find(".particle").length === 0) {
+        // 버블 개수만큼 생성
+        for (var i = 0; i < bubblecount; i++) {
+          var size = $.rnd(20, 60) / 1; // 버블 크기 축소
+          $(this).append(
+            '<span class="particle" style="top:' +
+              $.rnd(20, 80) +
+              "%; left:" +
+              $.rnd(0, 95) +
+              "%; width:" +
+              size +
+              "px; height:" +
+              size +
+              "px; animation-delay: " +
+              $.rnd(0, 30) / 10 +
+              's;"></span>'
+          );
+        }
+      }
+    });
+  }
+
+  // 랜덤 숫자 생성 함수
+  jQuery.rnd = function (m, n) {
+    m = parseInt(m);
+    n = parseInt(n);
+    return Math.floor(Math.random() * (n - m + 1)) + m;
+  };
+
+  // Intersection Observer로 특정 섹션에서만 효과 실행
+  const bubbleObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          initparticles();
+          bubbleObserver.disconnect(); // 중복 실행 방지
+        }
+      });
+    },
+    { threshold: 0.5 } // 섹션이 50% 보일 때 실행
+  );
+
+  // .particletext.bubbles 요소 관찰
+  bubbleObserver.observe(document.querySelector(".particletext.bubbles"));
+
   Splitting();
 });
