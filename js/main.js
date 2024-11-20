@@ -524,6 +524,29 @@ $(window).on("scroll", function () {
   boldElements.forEach((el) => {
     observers.observe(el);
   });
+  // IntersectionObserver를 사용하여 #con6을 감지
+  let observerCon6 = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          let thankyouLine = document.querySelector(".thankyou_line");
+
+          // 애니메이션 시작
+          thankyouLine.style.animation = "slideIn2 3s ease-out forwards";
+
+          // 한 번 실행 후 다시 감지하지 않도록 observer 해제
+          observerCon6.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 } // 50% 이상 보일 때 트리거
+  );
+
+  // #con6 감시
+  let con6 = document.querySelector("#con6");
+  if (con6) {
+    observerCon6.observe(con6);
+  }
 
   // Splitting 호출
   Splitting();

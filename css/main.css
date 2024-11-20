@@ -663,6 +663,7 @@
 .img_3.hover-trigger,
 .img_4.hover-trigger {
   border: 3px solid #00aaff;
+  box-sizing: border-box;
   cursor: pointer;
   transform: scale(1.1);
   box-shadow: #0af 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px,
@@ -1841,7 +1842,7 @@
 
 #con5 {
   position: relative;
-  height: 200vh;
+  height: 100vh;
   width: 100%;
 }
 
@@ -1849,7 +1850,7 @@
   position: relative;
   padding: 0;
   margin: 0;
-  height: 200vh;
+  height: 100vh;
   width: 100%;
   background-image: url(../img/bg5.jpg);
   background-size: cover;
@@ -1918,7 +1919,7 @@ h1 {
 .pront {
   z-index: 999;
   position: fixed;
-  left: 50%;
+  right: 0%;
   top: 35%;
   transform: translate(-50%, -50%);
   width: 50vh;
@@ -1930,17 +1931,9 @@ h1 {
 }
 
 .pront img {
-  width: 200%;
-  height: 100%;
+  width: 250%;
+  height: 200%;
   object-fit: cover;
-}
-
-.rom_dro {
-  left: 50%;
-  bottom: 0%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  width: 30%;
 }
 
 /* SCROLL DOWN */
@@ -1967,6 +1960,55 @@ h1 {
   filter: invert(1);
   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHBhdGggZmlsbD0iYmxhY2siIGQ9Ik00ODMuMiwxOTIuMmMtMjAuNS0yMC41LTUzLjUtMjAuOC03My43LTAuNkwyNTcsMzQ0LjFMMTA0LjUsMTkxLjZjLTIwLjItMjAuMi01My4yLTE5LjktNzMuNywwLjYKCWMtMjAuNSwyMC41LTIwLjgsNTMuNS0wLjYsNzMuN2wxOTAsMTkwYzEwLjEsMTAuMSwyMy40LDE1LjEsMzYuOCwxNWMxMy4zLDAuMSwyNi43LTQuOSwzNi44LTE1bDE5MC0xOTAKCUM1MDMuOSwyNDUuNyw1MDMuNywyMTIuNyw0ODMuMiwxOTIuMnoiLz4KPC9zdmc+);
   background-size: contain;
+}
+
+#con6 {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.con6 {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/bg6.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.rom_dro {
+  z-index: 3;
+  left: 50%;
+  bottom: 0%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 25%;
+}
+
+/* 초기 상태에서 숨김 처리 */
+.thankyou_line {
+  width: 80vw;
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  fill: #0af;
+  clip-path: inset(0 100% 0 0); /* 애니메이션 전 숨김 */
+}
+
+/* 애니메이션 */
+@keyframes slideIn2 {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 @media (min-width: 760px) and (max-width: 1200px) {
