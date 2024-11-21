@@ -204,107 +204,86 @@ $(function () {
   });
 
   $(document).ready(function () {
-    $(window).on("scroll", function () {
+    function handleScroll() {
       const scrollTop = $(window).scrollTop();
       const windowHeight = $(window).height();
 
+      // 1. .keyword_2 li - 순차적 등장
       $(".keyword_2 li").each(function (index) {
         const elementTop = $(this).offset().top;
-
-        // 화면에 요소가 나타날 때
         if (scrollTop + windowHeight >= elementTop + 50) {
-          // 순서대로 나타나는 딜레이 추가
           setTimeout(() => {
             $(this).addClass("show");
-          }, index * 300); // 300ms 간격으로 펼쳐짐
+          }, index * 300);
         }
       });
-    });
-  });
-  $(document).ready(function () {
-    $(window).on("scroll", function () {
-      const scrollTop = $(window).scrollTop();
-      const windowHeight = $(window).height();
 
+      // 2. .color - 너비 증가
       $(".color").each(function () {
         const elementTop = $(this).offset().top;
-
-        // 화면에 요소가 나타날 때
         if (scrollTop + windowHeight >= elementTop + 50) {
-          $(this).css("width", "25vw"); // 게이지가 25vw까지 차오름
+          $(this).css("width", "100%");
         }
       });
-    });
-  });
-  $(document).ready(function () {
-    $(window).on("scroll", function () {
-      const scrollTop = $(window).scrollTop();
-      const windowHeight = $(window).height();
 
-      // .color_balance p 요소
-      const colorBalanceTarget = $(".color_balance p");
-      const colorBalanceElementTop = colorBalanceTarget.offset().top;
-
-      // .logo_design p 요소
-      const logoDesignTarget = $(".logo_design p");
-      const logoDesignElementTop = logoDesignTarget.offset().top;
-
-      // .color_balance p 요소가 화면에 나타날 때 타이핑 효과 실행
-      if (scrollTop + windowHeight >= colorBalanceElementTop + 50) {
-        if (!colorBalanceTarget.hasClass("typed")) {
-          // 이미 실행된 경우 중복 방지
-          colorBalanceTarget.addClass("typed");
-          smoothTypingEffect(colorBalanceTarget); // 부드러운 타이핑 효과 실행
-        }
-      }
-
-      // .logo_design p 요소가 화면에 나타날 때 타이핑 효과 실행
-      if (scrollTop + windowHeight >= logoDesignElementTop + 50) {
-        if (!logoDesignTarget.hasClass("typed")) {
-          // 이미 실행된 경우 중복 방지
-          logoDesignTarget.addClass("typed");
-          smoothTypingEffect(logoDesignTarget); // 부드러운 타이핑 효과 실행
-        }
-      }
-    });
-
-    // 부드러운 타이핑 애니메이션 함수
-    function smoothTypingEffect(element) {
-      const text = element.text(); // 기존 텍스트 가져오기
-      element.text(""); // 텍스트 초기화
-      let index = 0;
-
-      // 일정한 속도로 타이핑하는 함수
-      function typeNextChar() {
-        if (index < text.length) {
-          element.append(text[index]); // 한 글자씩 추가
-          index++;
-          const typingSpeed = 25; // 일정한 타이핑 속도 (80ms)
-          setTimeout(typeNextChar, typingSpeed); // 일정한 간격으로 타이핑
-        }
-      }
-
-      // 띄어쓰기나 줄바꿈을 처리하지 않고 타이핑하는 방식
-      function typeTextWithoutPause() {
-        typeNextChar(); // 첫 글자 추가 호출
-      }
-
-      typeTextWithoutPause(); // 글자 타이핑 시작
-    }
-  });
-  $(document).ready(function () {
-    $(window).on("scroll", function () {
-      const scrollTop = $(window).scrollTop();
-      const windowHeight = $(window).height();
-
-      $(".logo_wrap li img").each(function (index) {
+      // 3. .color_balance p, .logo_design p - 타이핑 효과
+      $(".color_balance p, .logo_design p").each(function () {
         const elementTop = $(this).offset().top;
+        if (
+          scrollTop + windowHeight >= elementTop + 50 &&
+          !$(this).hasClass("typed")
+        ) {
+          $(this).addClass("typed");
+          smoothTypingEffect($(this));
+        }
+      });
 
-        // li 요소가 화면에 들어왔을 때 fadeIn 클래스를 추가
+      // 4. .logo_wrap li img - 페이드인 효과
+      $(".logo_wrap li img").each(function () {
+        const elementTop = $(this).offset().top;
         if (scrollTop + windowHeight >= elementTop + 50) {
           $(this).addClass("fadeIn");
         }
       });
+    }
+
+    // 부드러운 타이핑 애니메이션 함수
+    function smoothTypingEffect(element) {
+      const text = element.text();
+      element.text("");
+      let index = 0;
+
+      function typeNextChar() {
+        if (index < text.length) {
+          element.append(text[index]);
+          index++;
+          setTimeout(typeNextChar, 25); // 25ms 간격
+        }
+      }
+
+      typeNextChar();
+    }
+
+    // 초기 애니메이션 강제 트리거
+    function triggerInitialAnimations() {
+      $(window).scrollTop(1); // 강제로 스크롤 이동
+      $(window).scrollTop(0); // 원위치
+      handleScroll(); // 초기 애니메이션 확인
+    }
+
+    // 이벤트 등록
+    $(window).on("scroll", handleScroll);
+
+    // 페이지 로드 시 강제 스크롤 트리거
+    $(window).on("load", function () {
+      triggerInitialAnimations();
+    });
+
+    // DOMContentLoaded 시 강제 초기화
+    document.addEventListener("DOMContentLoaded", function () {
+      setTimeout(() => {
+        triggerInitialAnimations();
+      }, 150); // 약간의 딜레이 추가
     });
   });
 
