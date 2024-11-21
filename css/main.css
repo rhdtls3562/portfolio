@@ -1858,16 +1858,28 @@
   background-position: center center;
 }
 
-.con5_wrap {
+.con5 h3 {
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  font-size: 3vw;
+  letter-spacing: -0.1vw;
+}
+
+.txt {
   display: none;
-  padding-left: 7vw;
+  padding-left: 5vw;
+  box-sizing: border-box;
   display: flex;
   width: 90%;
   margin: auto;
 }
 
 .con5_website {
-  display: none;
   margin-top: 2vw;
 }
 

@@ -603,6 +603,52 @@ $(window).on("scroll", function () {
 
   // .particletext.bubbles 요소 관찰
   bubbleObserver.observe(document.querySelector(".particletext.bubbles"));
+  // num 클릭 이벤트를 확장
+  document.querySelectorAll(".images > div").forEach((num) => {
+    num.addEventListener("click", function () {
+      // 기존 num 동작 처리 (이미 구현된 것 유지)
+
+      // num의 ID 또는 클래스에서 숫자 추출
+      const targetNum = this.className.match(/num(\d+)/)[1]; // 예: num1 -> "1"
+
+      // 상단 txt 요소와 매칭하여 활성화
+      document.querySelectorAll(".con5wrap div").forEach((txt) => {
+        txt.classList.remove("active"); // 기존 활성화 상태 초기화
+        if (txt.className.includes(`txt${targetNum}`)) {
+          txt.classList.add("active"); // 매칭된 txt 활성화
+        }
+      });
+    });
+  });
+  // .con5 h3 요소 선택
+  const con5H3 = document.querySelector(".con5 h3");
+
+  // IntersectionObserver 설정: #con5가 화면에 50% 이상 보일 때 동작
+  let observer3 = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // #con5가 화면에 나타났을 때
+          setTimeout(() => {
+            con5H3.style.transition = "opacity 1s ease"; // 부드럽게 사라지도록 설정
+            con5H3.style.opacity = 0; // opacity를 0으로 설정하여 부드럽게 사라짐
+
+            // opacity가 0이 된 후 display를 none으로 설정
+            setTimeout(() => {
+              con5H3.style.display = "none";
+            }, 1000); // opacity가 0이 된 후 1초 뒤에 display: none으로 변경
+          }, 2500); // 3초 뒤에 사라지게 설정
+        }
+      });
+    },
+    { threshold: 0.5 }
+  ); // 50%가 보일 때 트리거
+
+  // #con5를 감시 대상으로 설정
+  let con5 = document.querySelector("#con5");
+  if (con5) {
+    observer3.observe(con5);
+  }
 
   Splitting();
 });
