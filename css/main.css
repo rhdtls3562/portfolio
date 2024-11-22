@@ -4315,10 +4315,7 @@ h1 {
 
 @media (max-width: 760px) {
   body {
-    scroll-behavior: smooth !important;
-    overflow: hidden;
     font-family: "Noto Sans KR", sans-serif;
-    height: 100%;
   }
 
   .con1,
@@ -4326,6 +4323,7 @@ h1 {
   .con3,
   .con4,
   #visual {
+    height: calc(var(--vh, 1vh) * 100); /* 동적으로 계산된 vh 값을 적용 */
     z-index: 999;
   }
 
@@ -5536,7 +5534,7 @@ h1 {
     width: 170px;
     height: 170px;
     bottom: 0px;
-    left: 30%;
+    left: 28%;
     object-fit: cover;
     background-size: cover;
     border-radius: 50%;
@@ -5946,7 +5944,7 @@ h1 {
   }
 
   .con4_img {
-    margin-left: 23vw;
+    margin-left: 19vw;
   }
 
   .con4_img img {
@@ -6049,7 +6047,7 @@ h1 {
     transform: translate(-50%, -50%);
     color: #fff;
     text-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    font-size: 3vw;
+    font-size: 4vw;
     letter-spacing: -0.1vw;
   }
 
@@ -6267,7 +6265,7 @@ h1 {
     text-align: left;
     position: absolute;
     left: 0px;
-    top: -350px;
+    top: -250px;
   }
 
   .con6 ul li:nth-child(2) {
@@ -6276,7 +6274,7 @@ h1 {
     text-align: right;
     position: absolute;
     right: -390px;
-    top: -340px;
+    top: -240px;
   }
 
   .con6 h2 {

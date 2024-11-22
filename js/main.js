@@ -628,6 +628,38 @@ $(window).on("scroll", function () {
   if (con5) {
     observer3.observe(con5);
   }
+  function setFullHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  }
+
+  function isMobile() {
+    return window.innerWidth <= 767; // 모바일 화면 크기 (예: 767px 이하)
+  }
+
+  function addResizeListener() {
+    if (isMobile()) {
+      window.addEventListener("resize", setFullHeight);
+      window.addEventListener("load", setFullHeight);
+    }
+  }
+
+  function removeResizeListener() {
+    window.removeEventListener("resize", setFullHeight);
+    window.removeEventListener("load", setFullHeight);
+  }
+
+  // 페이지 로드 시, 모바일 화면이면 이벤트 리스너 추가
+  addResizeListener();
+
+  // 화면 크기 변경 시, 모바일 화면인지 확인하고 리스너 추가/제거
+  window.addEventListener("resize", () => {
+    if (isMobile()) {
+      addResizeListener();
+    } else {
+      removeResizeListener();
+    }
+  });
 
   Splitting();
 });
