@@ -4316,6 +4316,7 @@ h1 {
 @media (max-width: 760px) {
   body {
     scroll-behavior: smooth !important;
+    overflow: hidden;
     font-family: "Noto Sans KR", sans-serif;
     height: calc(var(--vh, 1vh) * 100);
   }
@@ -4325,6 +4326,7 @@ h1 {
   .con3,
   .con4,
   #visual {
+    position: fixed;
     z-index: 999;
   }
 

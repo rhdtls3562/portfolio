@@ -3,15 +3,6 @@ $(function () {
   $(window).on("load", function () {
     $("html, body").scrollTop(0); // 페이지가 로드되면 상단으로 스크롤 이동
   });
-  $(document).ready(function () {
-    function setFullHeight() {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    }
-
-    setFullHeight();
-    $(window).on("resize", setFullHeight);
-  });
 
   // 초기 숨기기
   $(".wrap, .menu").hide();
