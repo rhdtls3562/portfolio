@@ -4945,7 +4945,6 @@ h1 {
 
   .con2 {
     position: relative;
-    z-index: -1px;
     padding: 3vw;
     gap: 3vw; /* 간격을 vw로 변경 */
     box-sizing: border-box;
@@ -4967,7 +4966,6 @@ h1 {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    width: 100%;
   }
 
   .keyword > li {
@@ -5126,7 +5124,7 @@ h1 {
   .line_7 {
     margin-top: 0.5vw; /* 마진을 vw로 변경 */
     margin-bottom: 1vw;
-    width: 100%;
+    width: 80%;
     height: 0.1vw; /* 두께를 vw로 변경 */
     background-color: #222;
   }
@@ -5206,11 +5204,7 @@ h1 {
   }
 
   .liner_wrap {
-    display: none;
     width: 80%;
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
     height: 37%;
     z-index: 1;
     margin-top: 20px;
@@ -5221,16 +5215,8 @@ h1 {
     display: none;
     content: "";
     position: absolute; /* 부모에 대해 절대 위치 설정 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    background-image: url(../img/격자.png); /* 배경 이미지 설정 */
-    filter: grayscale(100%);
     background-size: cover;
     background-position: center;
-    mix-blend-mode: multiply; /* 이미지와 배경을 혼합 */
-    opacity: 0.8; /* 투명도 조절 */
   }
 
   .logo_wrap {
@@ -5238,7 +5224,6 @@ h1 {
     padding: 1vw;
     flex-wrap: nowrap;
     gap: 100px;
-    z-index: 3; /* 이 요소가 가상 요소 위에 있도록 설정 */
   }
 
   @keyframes fadeInUp {
@@ -5300,11 +5285,16 @@ h1 {
   }
 
   .logo_design {
-    margin-left: 0.5vw; /* 마진을 vw로 변경 */
+    position: absolute;
+    padding: 3vw;
+    gap: 3vw; /* 간격을 vw로 변경 */
+    box-sizing: border-box;
+    width: 100%;
+    left: 5%;
   }
 
   .logo_design p {
-    width: 95%;
+    width: 80%;
     margin-top: 1.3vw; /* 마진을 vw로 변경 */
     color: #777;
   }
