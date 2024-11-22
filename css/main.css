@@ -4323,7 +4323,6 @@ h1 {
   .con3,
   .con4,
   #visual {
-    height: calc(var(--vh, 1vh) * 100); /* 동적으로 계산된 vh 값을 적용 */
     z-index: 999;
   }
 
@@ -4363,7 +4362,6 @@ h1 {
     box-sizing: border-box;
     position: relative;
     width: 100%;
-    height: 100vh;
   }
 
   .visual_txt {
@@ -4371,12 +4369,12 @@ h1 {
   }
 
   .visual_rom {
-    position: absolute;
-    left: 50%;
-    top: 60%;
-    transform: translate(-50%, -50%);
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 300px;
+    margin-top: 20vw;
+    margin-left: 8vw;
   }
 
   video {
@@ -4740,6 +4738,7 @@ h1 {
   }
 
   .con1 {
+    padding: 5vw;
     z-index: -1px;
     position: relative;
     overflow: hidden;
@@ -4748,7 +4747,6 @@ h1 {
     display: flex; /* display: block을 제거하고 flex만 사용 */
     justify-content: center; /* 수평 중앙 */
     align-items: center; /* 수직 중앙 */
-    height: 100vh; /* 부모 요소의 높이를 100vh로 설정 */
     background-image: url(../img/bg1.jpg);
     background-position: center center;
     background-size: cover;
@@ -4771,7 +4769,7 @@ h1 {
   }
 
   .con1_wrap h2 {
-    margin: auto;
+    padding: 0 !important;
     margin-bottom: 2vw;
     font-size: 8vw; /* 폰트 사이즈를 vw로 변경 */
     font-family: "Raleway", sans-serif;
@@ -4892,7 +4890,7 @@ h1 {
   }
 
   .line-dotted-active {
-    width: 80%;
+    width: 100%;
   }
 
   /* 일반 요소 (페이드 인 + 슬라이드 업) */
@@ -4908,7 +4906,8 @@ h1 {
   }
 
   .txt2_2 {
-    margin: auto;
+    width: 150% !important;
+    margin-left: -10vw;
     display: flex;
     gap: 5vw; /* 간격을 vw로 변경 */
     justify-content: left;
@@ -4950,7 +4949,7 @@ h1 {
     width: 100%;
     background-image: url(../img/bg2.jpg);
     display: block;
-    height: 100vh; /* 전체 화면 높이 */
+
     background-size: cover;
     background-position: center;
   }
@@ -5516,7 +5515,7 @@ h1 {
     justify-content: center; /* 수평 중앙 */
     align-items: center; /* 수직 중앙 */
     width: 100%;
-    height: 100vh; /* 부모 요소의 높이를 100vh로 설정 */
+
     background-image: url(../img/bg3.jpg);
     background-size: cover;
   }
@@ -5808,12 +5807,12 @@ h1 {
 
   .con4_back {
     width: 100%;
-    height: 100vh;
+
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+
     background-image: url(../img/con4back.png);
     background-size: cover;
     background-position: center;
@@ -6023,7 +6022,7 @@ h1 {
 
   #con5 {
     position: relative;
-    height: 100vh;
+
     width: 100%;
   }
 
@@ -6034,7 +6033,6 @@ h1 {
     display: flex; /* display: block을 제거하고 flex만 사용 */
     justify-content: center; /* 수평 중앙 */
     align-items: center; /* 수직 중앙 */
-    height: 100vh; /* 부모 요소의 높이를 100vh로 설정 */
     background-image: url(../img/bg5.jpg);
     background-size: cover;
   }
@@ -6237,7 +6235,6 @@ h1 {
   /*con6*/
 
   #con6 {
-    height: 100vh;
     width: 100%;
   }
 
@@ -6250,7 +6247,6 @@ h1 {
     display: flex; /* display: block을 제거하고 flex만 사용 */
     justify-content: center; /* 수평 중앙 */
     align-items: center; /* 수직 중앙 */
-    height: 100vh; /* 부모 요소의 높이를 100vh로 설정 */
     background-image: url(../img/bg6.jpg);
     background-size: cover;
   }
