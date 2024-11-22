@@ -4945,68 +4945,28 @@ h1 {
 
   .con2 {
     position: relative;
-    padding: 3vw;
-    gap: 3vw; /* 간격을 vw로 변경 */
+    padding: 5vw; /* vw로 변경하여 반응형 적용 */
+    gap: 5vw; /* 간격을 vw로 변경 */
     box-sizing: border-box;
     width: 100%;
     background-image: url(../img/bg2.jpg);
     display: block;
-    height: 100vh; /* 전체 화면 높이로 설정 */
+    height: 100vh; /* 전체 화면 높이 */
     background-size: cover;
+    background-position: center;
   }
 
   .con2_wrap {
-    position: relative; /* 추가 */
+    position: relative;
     width: 90%;
     margin: auto;
-    margin-top: 3vw;
+    margin-top: 5vw;
   }
 
   .keyword {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-  }
-
-  .keyword > li {
-    opacity: 0; /* 초기에는 보이지 않음 */
-    transform: translateX(
-      0
-    ); /* 화면에서 벗어난 위치에 두지 않고, 기본 위치 유지 */
-    transition: opacity 1s, transform 1s; /* 트랜지션 효과 */
-  }
-
-  /* 왼쪽에서 들어오는 애니메이션 */
-  .keyword > li.left {
-    transform: translateX(-100%); /* 처음에는 왼쪽 밖에 위치 */
-  }
-
-  /* 오른쪽에서 들어오는 애니메이션 */
-  .keyword > li.right {
-    transform: translateX(100%); /* 처음에는 오른쪽 밖에 위치 */
-  }
-
-  /* 화면에 보였을 때 애니메이션을 적용 */
-  .keyword > li.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  /* 각 항목의 애니메이션 지연 시간 */
-  .keyword > li:nth-child(1).left {
-    animation-delay: 0.5s;
-  }
-
-  .keyword > li:nth-child(2).right {
-    animation-delay: 1s;
-  }
-
-  .keyword > li:nth-child(3).left {
-    animation-delay: 1.5s;
-  }
-
-  .keyword > li:nth-child(4).right {
-    animation-delay: 2s;
   }
 
   .keyword h5 {
@@ -5071,11 +5031,10 @@ h1 {
   .h52 a .char::after,
   .h53 a .char::after,
   .h54 a .char::after {
-    color: black; /* 텍스트 색상을 검정으로 설정 */
+    color: black;
     text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
 
-  /* 마우스 hover 시 문자 효과 */
   .h51 a:hover .char::before,
   .h52 a:hover .char::before,
   .h53 a:hover .char::before,
@@ -5090,7 +5049,6 @@ h1 {
     transform: translateY(-100%);
   }
 
-  /* 자동으로 호버 효과가 적용되도록 */
   .h51 .char.hover-effect::before,
   .h52 .char.hover-effect::before,
   .h53 .char.hover-effect::before,
@@ -5105,28 +5063,291 @@ h1 {
     transform: translateY(-100%);
   }
 
-  .line_5 {
-    margin-top: 1vw; /* 마진을 vw로 변경 */
-    margin-bottom: 1.5vw;
-    width: 100%;
-    height: 0.1vw; /* 두께를 vw로 변경 */
-    background-color: #222;
+  .keyword {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
   }
 
-  .line_6 {
-    margin-top: 0.5vw; /* 마진을 vw로 변경 */
-    margin-bottom: 1.5vw;
-    width: 100%;
-    height: 0.1vw; /* 두께를 vw로 변경 */
-    background-color: #222;
+  .keyword > li {
+    opacity: 0;
+    transform: translateX(0);
+    transition: opacity 1s, transform 1s;
   }
 
+  .keyword > li.left {
+    transform: translateX(-100%);
+  }
+
+  .keyword > li.right {
+    transform: translateX(100%);
+  }
+
+  .keyword > li.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .keyword > li:nth-child(1).left {
+    animation-delay: 0.5s;
+  }
+
+  .keyword > li:nth-child(2).right {
+    animation-delay: 1s;
+  }
+
+  .keyword > li:nth-child(3).left {
+    animation-delay: 1.5s;
+  }
+
+  .keyword > li:nth-child(4).right {
+    animation-delay: 2s;
+  }
+
+  .keyword h5 {
+    font-family: "Raleway", sans-serif;
+    font-size: 4vw; /* 폰트 사이즈를 vw로 변경 */
+  }
+
+  .keyword_2 {
+    margin-top: 5vw;
+    align-items: center;
+    display: flex;
+    margin-bottom: 5vw;
+  }
+
+  .con1_wrap h2 {
+    padding-left: 10vw;
+    margin: auto;
+    font-size: 5vw;
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+  }
+
+  .h51 a .char,
+  .h52 a .char,
+  .h53 a .char,
+  .h54 a .char {
+    display: inline-block;
+    overflow: hidden;
+    color: transparent;
+    position: relative;
+  }
+
+  .h51 a .char::before,
+  .h51 a .char::after,
+  .h52 a .char::before,
+  .h52 a .char::after,
+  .h53 a .char::before,
+  .h53 a .char::after,
+  .h54 a .char::before,
+  .h54 a .char::after {
+    content: attr(data-char);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s;
+    transition-delay: calc(30ms * var(--char-index));
+    opacity: 1;
+  }
+
+  .h51 a .char::before,
+  .h52 a .char::before,
+  .h53 a .char::before,
+  .h54 a .char::before {
+    transform: translateY(100%);
+    opacity: 1;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+
+  .h51 a .char::after,
+  .h52 a .char::after,
+  .h53 a .char::after,
+  .h54 a .char::after {
+    color: black;
+    text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+
+  .h51 a:hover .char::before,
+  .h52 a:hover .char::before,
+  .h53 a:hover .char::before,
+  .h54 a:hover .char::before {
+    transform: translateY(0);
+  }
+
+  .h51 a:hover .char::after,
+  .h52 a:hover .char::after,
+  .h53 a:hover .char::after,
+  .h54 a:hover .char::after {
+    transform: translateY(-100%);
+  }
+
+  .h51 .char.hover-effect::before,
+  .h52 .char.hover-effect::before,
+  .h53 .char.hover-effect::before,
+  .h54 .char.hover-effect::before {
+    transform: translateY(0);
+  }
+
+  .h51 .char.hover-effect::after,
+  .h52 .char.hover-effect::after,
+  .h53 .char.hover-effect::after,
+  .h54 .char.hover-effect::after {
+    transform: translateY(-100%);
+  }
+
+  .line_5,
+  .line_6,
   .line_7 {
-    margin-top: 0.5vw; /* 마진을 vw로 변경 */
-    margin-bottom: 1vw;
-    width: 80%;
-    height: 0.1vw; /* 두께를 vw로 변경 */
+    margin-top: 1vw;
+    margin-bottom: 1.5vw;
+    width: 100%;
+    height: 0.1vw;
     background-color: #222;
+  }
+
+  .keyword_2 li:nth-child(1),
+  .keyword_2 li:nth-child(3),
+  .keyword_2 li:nth-child(5) {
+    background-color: #97e4da;
+    width: 100%;
+    height: 5vw; /* 모바일에서 더 쉽게 보이도록 조정 */
+    line-height: 5vw;
+    text-align: center;
+    border-radius: 2vw;
+    border: 1px solid #222;
+  }
+
+  .keyword_2 li i {
+    padding: 1vw;
+  }
+
+  .keyword_2 li {
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+
+  .keyword_2 li.show {
+    position: static;
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+
+  .color {
+    color: #aaa;
+    margin-top: 1vw;
+    margin-bottom: 0.3vw;
+    width: 0;
+    height: 3vw; /* 높이를 vw로 변경 */
+    border-radius: 10px;
+    transition: width 2s ease;
+  }
+
+  .color_system {
+    margin-top: 5vw;
+  }
+
+  .color_system p {
+    font-family: "Raleway", sans-serif;
+    color: #777;
+  }
+
+  .color1,
+  .color2,
+  .color3 {
+    background-color: #000;
+  }
+
+  .color_balance {
+    width: 100%;
+  }
+
+  .color_balance p {
+    font-size: 13px !important;
+    color: #777;
+  }
+
+  .liner_wrap::before {
+    display: none;
+    content: "";
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .logo_wrap {
+    margin-bottom: 8vw;
+    flex-wrap: nowrap;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 1;
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-10px) scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .logo_wrap li img {
+    opacity: 1;
+    transform: scale(1);
+    animation: fadeInUp 2s forwards infinite;
+    animation-delay: 5s;
+    z-index: 3;
+  }
+
+  .logo_wrap li:nth-child(1) img,
+  .logo_wrap li:nth-child(2) img,
+  .logo_wrap li:nth-child(3) img,
+  .logo_wrap li:nth-child(4) img {
+    width: 10vw;
+    object-fit: cover;
+    filter: none;
+  }
+
+  .logo_design {
+    position: absolute;
+    padding: 5vw;
+    gap: 5vw;
+    box-sizing: border-box;
+    width: 100%;
+    left: 5%;
+  }
+
+  .logo_design p {
+    font-size: 13px !important;
+    width: 100%;
+    margin-top: 1.5vw;
+    color: #777;
+  }
+
+  .hand {
+    animation: scale-animation 2s infinite;
+  }
+
+  @keyframes scale-animation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
   .keyword_2 li:nth-child(1),
@@ -5198,32 +5419,14 @@ h1 {
   }
 
   .color_balance p {
-    text-align: justify;
-    line-height: 25px; /* 줄 높이를 vw로 변경 */
     color: #777;
   }
 
-  .liner_wrap {
-    width: 80%;
-    height: 37%;
-    z-index: 1;
-    margin-top: 20px;
-    position: relative;
-  }
-
-  .liner_wrap::before {
-    display: none;
-    content: "";
-    position: absolute; /* 부모에 대해 절대 위치 설정 */
-    background-size: cover;
-    background-position: center;
-  }
-
   .logo_wrap {
-    margin-bottom: 5vw;
-    padding: 1vw;
+    margin-top: 10vw;
+    margin-left: 20px;
     flex-wrap: nowrap;
-    gap: 100px;
+    gap: 70px;
   }
 
   @keyframes fadeInUp {
@@ -5280,37 +5483,18 @@ h1 {
   }
 
   .liner_wrap p {
-    width: 50%; /* 너비를 vw로 변경 */
+    width: 100%; /* 너비를 vw로 변경 */
     text-align: justify;
   }
 
   .logo_design {
-    position: absolute;
-    padding: 3vw;
-    gap: 3vw; /* 간격을 vw로 변경 */
-    box-sizing: border-box;
-    width: 100%;
-    left: 5%;
+    width: 110%;
+    margin-left: -10vw;
   }
 
   .logo_design p {
-    width: 80%;
-    margin-top: 1.3vw; /* 마진을 vw로 변경 */
+    width: 100%;
     color: #777;
-  }
-
-  .hand {
-    animation: scale-animation 2s infinite; /* 2초마다 반복 */
-  }
-
-  @keyframes scale-animation {
-    0%,
-    100% {
-      transform: scale(1); /* 기본 크기 */
-    }
-    50% {
-      transform: scale(1.2); /* 커지는 효과 */
-    }
   }
 
   .logo2 {
@@ -5368,9 +5552,20 @@ h1 {
 
   .hand {
     position: absolute;
-    left: 20vw;
-    top: 20vw;
+    left: 130px;
+    top: 120px;
     width: 10vw;
+    animation: scale-animation 2s infinite; /* 2초마다 반복 */
+  }
+
+  @keyframes scale-animation {
+    0%,
+    100% {
+      transform: scale(1); /* 기본 크기 */
+    }
+    50% {
+      transform: scale(1.2); /* 커지는 효과 */
+    }
   }
 
   .button {
@@ -5643,7 +5838,7 @@ h1 {
     justify-content: center;
     align-items: center;
     margin-top: 0vw;
-    width: 400px;
+    width: 350px;
     object-fit: cover;
   }
 
@@ -5999,10 +6194,10 @@ h1 {
     z-index: 999;
     position: fixed;
     right: -10%;
-    top: 35%;
+    top: 40%;
     transform: translate(-50%, -50%);
-    width: 40vh;
-    height: 50vh;
+    width: 57vw;
+    height: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6068,7 +6263,7 @@ h1 {
 
   .con6 ul li:nth-child(1) {
     line-height: 25px;
-    font-size: 20px;
+    font-size: 3.5vw;
     text-align: left;
     position: absolute;
     left: 0px;
@@ -6080,8 +6275,8 @@ h1 {
     font-size: 13px;
     text-align: right;
     position: absolute;
-    right: -470px;
-    top: -350px;
+    right: -390px;
+    top: -340px;
   }
 
   .con6 h2 {
@@ -6094,7 +6289,7 @@ h1 {
     align-items: center;
     padding-top: 400px;
     box-sizing: border-box;
-    font-size: 130px;
+    font-size: 20vw;
     letter-spacing: -0.5vw;
   }
 
@@ -6142,7 +6337,7 @@ h1 {
   }
 
   .con6 li:nth-child(2) h5 {
-    font-size: 15px;
+    font-size: 3vw;
     margin-bottom: 0.5vw;
   }
 
@@ -6153,11 +6348,11 @@ h1 {
 
   /* 초기 상태에서 숨김 처리 */
   .thankyou_line {
-    width: 40vw;
+    width: 45vw;
     z-index: 1;
     position: absolute;
     left: 10%;
-    top: 55%;
+    top: 60%;
     transform: translate(-50%, -50%);
     fill: #fff;
     clip-path: inset(0 100% 0 0); /* 애니메이션 전 숨김 */
