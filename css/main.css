@@ -1644,7 +1644,7 @@
 }
 
 .mockups img {
-  padding-left: 0vw;
+  padding-left: 5vw;
   margin-top: 15vw;
   right: 30vw;
   width: 35vw;
@@ -1652,13 +1652,13 @@
 }
 
 .mockupss {
+  left: 3%;
   position: relative;
 }
 
 .mockupss img:nth-child(1) {
-  margin-right: 2vw;
-  margin-top: 2vw;
-  width: 23vw;
+  margin-top: 10vw;
+  width: 17vw;
 }
 
 .website h5 {
@@ -1730,6 +1730,7 @@
 }
 
 .website p {
+  letter-spacing: -1px;
   font-size: 1vw;
   font-weight: 600;
   margin-bottom: 1.5vw;
