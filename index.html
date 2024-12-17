@@ -579,48 +579,9 @@
                     </li>
                   </ul>
                 </div>
-                <!-- 네 번째 슬라이드 -->
-                <div class="swiper-slide">
-                  <ul class="con4_wrap">
-                    <div class="con4_back"></div>
-                    <li class="website">
-                      <h5>WEBSITE</h5>
-                      <h2><a href="#" data-splitting>SOCIALIZE</a></h2>
-                      <h4>의류 편집샵 홈페이지 디자인</h4>
-                      <div><span>작업일</span> 2024.09-2024.10</div>
-                      <div><span>기여도</span> 70%</div>
-                      <div>
-                        <span class="mar">URL</span> rhdtls3562.dothome.co.kr
-                      </div>
-                      <ul class="con4_img">
-                        <li><img src="img/seemore.png" alt="See More" /></li>
-                        <li><img src="img/plan.png" alt="Plan" /></li>
-                      </ul>
-                      <h6>Used Tool</h6>
-                      <ul class="con4_img2">
-                        <li><img src="img/html.png" alt="HTML" /></li>
-                        <li><img src="img/css.png" alt="CSS" /></li>
-                        <li><img src="img/제이쿼리.png" alt="jQuery" /></li>
-                      </ul>
-                      <h6>Overview</h6>
-                      <p>
-                        "SOCIALIZE" 라는 단어를 인용하여 각각 다른 팀원들이
-                        어울려 새롭고 획기적인 홈페이지를 만들자는 취지로 사이트
-                        제작을 시작하였습니다.
-                      </p>
-                    </li>
-                    <li class="mockups">
-                      <img src="img/mockup1.png" alt="Mockup 1" />
-                    </li>
-                    <li class="mockupss">
-                      <img src="img/mockup2.png" alt="Mockup 2" />
-                    </li>
-                  </ul>
-                </div>
               </div>
               <div class="swiper-button-next"></div>
               <div class="swiper-button-prev"></div>
-              <div class="swiper-pagination"></div>
             </div>
           </div>
         </section>
@@ -1418,32 +1379,32 @@
                 .hide()
                 .html(
                   `
-            <div>
-              <button id="close-btn" style="
-                position: fixed;
-                top: -3%;
-                right: -28%;
-                background: #2a49e8;
-                color: white;
-                border: none;
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                font-size: 16px;
-                cursor: pointer;
-                z-index: 10000;
-              ">X</button>
-              <img src="${img.src}" alt="${img.alt}" style="
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                max-width: 150%;
-                max-height: 100%;
-                z-index: 9999;
-                cursor: pointer;
-              ">
-            </div>`
+                  <div>
+                    <button id="close-btn" style="
+                      position: fixed;
+                      top: -3%;
+                      right: -28%;
+                      background: #2a49e8;
+                      color: white;
+                      border: none;
+                      width: 30px;
+                      height: 30px;
+                      border-radius: 50%;
+                      font-size: 16px;
+                      cursor: pointer;
+                      z-index: 10000;
+                    ">X</button>
+                    <img src="${img.src}" alt="${img.alt}" style="
+                      position: fixed;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                      max-width: 150%;
+                      max-height: 100%;
+                      z-index: 9999;
+                      cursor: pointer;
+                    ">
+                  </div>`
                 )
                 .fadeIn(500); // fadeIn으로 부드럽게 나타남
               isFullScreen = true;
@@ -1473,7 +1434,7 @@
 
       // 닫기 함수
       function closeFullscreen() {
-        $(pront).fadeOut(500, function () {
+        $(pront).fadeOut(600, function () {
           pront.innerHTML = ""; // 내용을 비움
         });
         isFullScreen = false;
@@ -1481,12 +1442,17 @@
       }
       // Swiper 설정 (슬라이드 효과)
       var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 30,
-        centeredSlides: true,
+        spaceBetween: 30, // 슬라이드 사이의 간격
+        centeredSlides: true, // 슬라이드를 가운데에 배치
+        direction: "horizontal", // 슬라이드 방향을 가로로 설정 (기본값)
+        loop: true, // 슬라이드를 무한 반복
         autoplay: {
-          delay: 2500, // 슬라이드 사이의 간격
-          disableOnInteraction: false, // 사용자가 상호작용한 후에도 자동으로 슬라이드 유지
+          delay: 2500, // 자동 슬라이드 딜레이 시간 (밀리초)
+          disableOnInteraction: false, // 사용자가 상호작용한 후에도 자동 슬라이드 유지
+          reverseDirection: false, // 슬라이드가 오른쪽으로만 이동하도록 설정
         },
+        speed: 1500, // 슬라이드 전환 속도 (옵션)
+
         pagination: {
           el: ".swiper-pagination",
           clickable: true,

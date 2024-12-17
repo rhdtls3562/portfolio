@@ -1627,12 +1627,12 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: url(../img/con4back.png);
+  background-image: url(../img/seroum\ hospital_back.gif);
   background-size: cover;
   background-position: center;
   z-index: 9999; /* 배경 이미지가 다른 콘텐츠 위에 위치하도록 z-index 설정 */
   opacity: 1; /* 처음에는 완전히 불투명 */
-  transition: opacity 3s ease; /* opacity가 서서히 변하도록 설정 */
+  transition: opacity 5s ease-in-out; /* opacity가 서서히 변하도록 설정 */
 }
 
 .con4_wrap {
@@ -1763,10 +1763,10 @@
   width: 7.7vw;
   object-fit: cover;
   margin-bottom: 5vw;
+  transition: 0.3s;
 }
 
 .con4_img img:hover {
-  transition: 0.3s;
   transform: scale(1.1); /* 10% 커지게 설정 */
 }
 
@@ -2011,7 +2011,7 @@ h1 {
 }
 
 .pront {
-  z-index: 999;
+  z-index: 998;
   position: fixed;
   right: 0%;
   top: 35%;
