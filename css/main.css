@@ -48,6 +48,19 @@
     color: #fff;
   }
 
+  .visual_plan {
+    width: 7%;
+    cursor: pointer;
+    position: absolute;
+    left: 10%;
+    bottom: 12%;
+    transition: 0.5s;
+  }
+
+  .visual_plan:hover {
+    transform: scale(1.1);
+  }
+
   #visual {
     color: #fff;
     box-sizing: border-box;
